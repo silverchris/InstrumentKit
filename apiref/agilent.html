@@ -28,7 +28,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="InstrumentKit Library 1.0alpha1 documentation" href="../index.html" />
     <link rel="up" title="GPIB USB Adapter API Reference" href="index.html" />
-    <link rel="next" title="Stanford Research Systems Instruments" href="srs.html" />
+    <link rel="next" title="HP-brand Instruments" href="hp.html" />
     <link rel="prev" title="Generic SCPI Instruments" href="generic_scpi.html" /> 
   </head>
   <body>
@@ -39,7 +39,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="srs.html" title="Stanford Research Systems Instruments"
+          <a href="hp.html" title="HP-brand Instruments"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="generic_scpi.html" title="Generic SCPI Instruments"
@@ -330,7 +330,7 @@ the currently set voltage units.</p>
 
 <dl class="method">
 <dt id="instruments.agilent.Agilent34410a.configure">
-<tt class="descname">configure</tt><big>(</big><em>mode=None</em>, <em>deviceRange=None</em>, <em>resolution=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.configure" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">configure</tt><big>(</big><em>mode=None</em>, <em>device_range=None</em>, <em>resolution=None</em><big>)</big><a class="headerlink" href="#instruments.agilent.Agilent34410a.configure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Change the measurement mode of the multimeter.
 No actual measurement will take place, but the instrument is then able 
 to do so using the INITiate or READ? command.</p>
@@ -345,7 +345,7 @@ for the current configuration settings. This returns a string such as
 <li><strong>mode</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Desired measurement mode, one of <tt class="docutils literal"><span class="pre">{CAPacitance|</span>
 <span class="pre">CONTinuity|CURRent:AC|CURRent:DC|DIODe|FREQuency|FRESistance|PERiod|</span>
 <span class="pre">RESistance|TEMPerature|VOLTage:AC|VOLTage:DC}</span></tt>.</li>
-<li><strong>deviceRange</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> (one of <tt class="docutils literal"><span class="pre">MINimum,</span> <span class="pre">MAXimum,</span> <span class="pre">DEFault,</span> 
+<li><strong>device_range</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> (one of <tt class="docutils literal"><span class="pre">MINimum,</span> <span class="pre">MAXimum,</span> <span class="pre">DEFault,</span> 
 <span class="pre">AUTOmatic</span></tt>) or range) &#8211; It is recommended this is user specified, but is 
 optional. Sets the range of the instrument. No value checking when 
 passed as a number.</li>
@@ -678,7 +678,8 @@ current setting. This is returned as a string. An example value is
 <dl class="attribute">
 <dt id="instruments.agilent.Agilent34410a.data_point_count">
 <tt class="descname">data_point_count</tt><a class="headerlink" href="#instruments.agilent.Agilent34410a.data_point_count" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the total number of readings that are located in reading memory (RGD_STORE).</p>
+<dd><p>Gets the total number of readings that are located in reading memory 
+(RGD_STORE).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -713,8 +714,8 @@ current setting. This is returned as a string. An example value is
   <p class="topless"><a href="generic_scpi.html"
                         title="previous chapter">Generic SCPI Instruments</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="srs.html"
-                        title="next chapter">Stanford Research Systems Instruments</a></p>
+  <p class="topless"><a href="hp.html"
+                        title="next chapter">HP-brand Instruments</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/apiref/agilent.txt"
@@ -744,7 +745,7 @@ current setting. This is returned as a string. An example value is
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="srs.html" title="Stanford Research Systems Instruments"
+          <a href="hp.html" title="HP-brand Instruments"
              >next</a> |</li>
         <li class="right" >
           <a href="generic_scpi.html" title="Generic SCPI Instruments"

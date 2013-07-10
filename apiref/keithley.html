@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Keithley-brand Instruments &mdash; InstrumentKit Library 1.0alpha1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0alpha1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="InstrumentKit Library 1.0alpha1 documentation" href="../index.html" />
+    <link rel="up" title="GPIB USB Adapter API Reference" href="index.html" />
+    <link rel="next" title="Lakeshore-brand Instruments" href="lakeshore.html" />
+    <link rel="prev" title="HP-brand Instruments" href="hp.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="lakeshore.html" title="Lakeshore-brand Instruments"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="hp.html" title="HP-brand Instruments"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">InstrumentKit Library 1.0alpha1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">GPIB USB Adapter API Reference</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="keithley-brand-instruments">
+<h1>Keithley-brand Instruments<a class="headerlink" href="#keithley-brand-instruments" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="keithley195">
+<h2><a class="reference internal" href="#instruments.keithley.Keithley195" title="instruments.keithley.Keithley195"><tt class="xref py py-class docutils literal"><span class="pre">Keithley195</span></tt></a><a class="headerlink" href="#keithley195" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.keithley.Keithley195">
+<em class="property">class </em><tt class="descclassname">instruments.keithley.</tt><tt class="descname">Keithley195</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley195" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instruments.keithley.Keithley195.auto_range">
+<tt class="descname">auto_range</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley195.auto_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn on auto range for the Keithley 195.</p>
+<p>This is the same as calling the associated set_[function]_range method
+and setting the parameter to &#8220;AUTO&#8221;.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley195.read">
+<tt class="descname">read</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley195.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force the Keithley 195 to perform a measurement.</p>
+<p>On the 195, there is no command that is sent to instruct it to take
+a measurement. Instead we just directly address the 195 to talk on the
+GPIB bus. Since the only connectivity option for the 195 is GPIB, this
+works just nicely.</p>
+<p>The instrument will return a measurement of the current mode it is in.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley195.set_current_range">
+<tt class="descname">set_current_range</tt><big>(</big><em>current='AUTO'</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley195.set_current_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manually set the current range of the Keithley 195.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>current</strong> &#8211; Current range. One of 
+{AUTO|20e-6|200e-6|2e-3|20e-3|200e-3|2}</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley195.set_function">
+<tt class="descname">set_function</tt><big>(</big><em>func</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley195.set_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the measurement mode that the Keithley 195 is in.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>func</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Desired measurement mode. One of
+{VOLTage:DC|VOLTage:AC|RESistance|CURRent:DC|CURRent:AC}</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley195.set_resistance_range">
+<tt class="descname">set_resistance_range</tt><big>(</big><em>res='AUTO'</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley195.set_resistance_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manually set the resistance range of the Keithley 195.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>res</strong> &#8211; Resistance range. One of 
+{AUTO|20|200|2000|20e3|200e3|2e6|20e6}</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley195.set_voltage_ac_range">
+<tt class="descname">set_voltage_ac_range</tt><big>(</big><em>voltage='AUTO'</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley195.set_voltage_ac_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manually set the voltage AC range of the Keithley 195.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>voltage</strong> &#8211; Voltage AC range. One of 
+{AUTO|20e-3|200e-3|2|20|200|700}</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley195.set_voltage_dc_range">
+<tt class="descname">set_voltage_dc_range</tt><big>(</big><em>voltage='AUTO'</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley195.set_voltage_dc_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manually set the voltage DC range of the Keithley 195.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>voltage</strong> &#8211; Voltage DC range. One of 
+{AUTO|20e-3|200e-3|2|20|200|1000}</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley195.trigger">
+<tt class="descname">trigger</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley195.trigger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tell the Keithley 195 to execute all commands that it has received.</p>
+<p>Do note that this is different from the standard SCPI <a href="#id1"><span class="problematic" id="id2">*</span></a>TRG command
+(which is not supported by the 195 anyways).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="keithley580">
+<h2><a class="reference internal" href="#instruments.keithley.Keithley580" title="instruments.keithley.Keithley580"><tt class="xref py py-class docutils literal"><span class="pre">Keithley580</span></tt></a><a class="headerlink" href="#keithley580" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.keithley.Keithley580">
+<em class="property">class </em><tt class="descclassname">instruments.keithley.</tt><tt class="descname">Keithley580</tt><big>(</big><em>port</em>, <em>address</em>, <em>timeout_length</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Keithley Model 580 is a 4 1/2 digit resolution autoranging
+micro-ohmmeter with a +- 20,000 count LCD. It is designed for low
+resistance measurement requirements from 10uΩ to 200kΩ.</p>
+<p>The device needs some processing time (manual reports 300-500ms) after a
+command has been transmitted.</p>
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.getMeasurement">
+<tt class="descname">getMeasurement</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.getMeasurement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.getStatusWord">
+<tt class="descname">getStatusWord</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.getStatusWord" title="Permalink to this definition">¶</a></dt>
+<dd><p>The keithley will not always respond with the statusword when asked. We
+use a simple heuristic here: request it up to 5 times, using a 1s
+delay to allow the keithley some thinking time.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.parseMeasurement">
+<tt class="descname">parseMeasurement</tt><big>(</big><em>measurement</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.parseMeasurement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.parseStatusWord">
+<tt class="descname">parseStatusWord</tt><big>(</big><em>statusword</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.parseStatusWord" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.setAutoRange">
+<tt class="descname">setAutoRange</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.setAutoRange" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.setCalibrationValue">
+<tt class="descname">setCalibrationValue</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.setCalibrationValue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.setDrive">
+<tt class="descname">setDrive</tt><big>(</big><em>func</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.setDrive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.setDryCircuitTest">
+<tt class="descname">setDryCircuitTest</tt><big>(</big><em>dc</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.setDryCircuitTest" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.setOperate">
+<tt class="descname">setOperate</tt><big>(</big><em>dc</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.setOperate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.setPolarity">
+<tt class="descname">setPolarity</tt><big>(</big><em>func</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.setPolarity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.setRelative">
+<tt class="descname">setRelative</tt><big>(</big><em>dc</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.setRelative" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.setResistanceRange">
+<tt class="descname">setResistanceRange</tt><big>(</big><em>res</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.setResistanceRange" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.setTrigger">
+<tt class="descname">setTrigger</tt><big>(</big><em>trigger</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.setTrigger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.storeCalibrationConstants">
+<tt class="descname">storeCalibrationConstants</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.storeCalibrationConstants" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley580.trigger">
+<tt class="descname">trigger</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley580.trigger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="keithley2182">
+<h2><a class="reference internal" href="#instruments.keithley.Keithley2182" title="instruments.keithley.Keithley2182"><tt class="xref py py-class docutils literal"><span class="pre">Keithley2182</span></tt></a><a class="headerlink" href="#keithley2182" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.keithley.Keithley2182">
+<em class="property">class </em><tt class="descclassname">instruments.keithley.</tt><tt class="descname">Keithley2182</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley2182" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instruments.keithley.Keithley2182.configure">
+<tt class="descname">configure</tt><big>(</big><em>mode=None</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley2182.configure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the measurement mode the Keithley 2182 is in.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Desired measurement mode. One of 
+{TEMPerature|VOLTage}</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley2182.fetch">
+<tt class="descname">fetch</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley2182.fetch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transfer readings from instrument memory to the output buffer, and thus 
+to the computer.
+If currently taking a reading, the instrument will wait until it is 
+complete before executing this command.
+Readings are NOT erased from memory when using fetch. Use the R? command 
+to read and erase data.
+Note that the data is transfered as ASCII, and thus it is not 
+recommended to transfer a large number of data points using GPIB.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">list</span></tt></a> of <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley2182.measure">
+<tt class="descname">measure</tt><big>(</big><em>mode</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley2182.measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform and transfer a measurement of the desired type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Desired measurement mode. One of 
+{TEMPerature|VOLTage}</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">list</span></tt></a> of <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley2182.sample_count">
+<tt class="descname">sample_count</tt><big>(</big><em>count=None</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley2182.sample_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command sets the number of readings (samples) that the meter will 
+take per trigger.</p>
+<p>Note that if the sample count parameter has been changed, the number of 
+readings taken will be a multiplication of sample count and trigger 
+count (see function <a class="reference internal" href="#instruments.keithley.Keithley2182.sample_count" title="instruments.keithley.Keithley2182.sample_count"><tt class="xref py py-obj docutils literal"><span class="pre">sample_count</span></tt></a>).</p>
+<p>If count is not specified, function queries the instrument for the 
+current sample count and returns an integer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>count</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of triggers before returning to an &#8220;idle&#8221; 
+trigger state.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley2182.trigger_count">
+<tt class="descname">trigger_count</tt><big>(</big><em>count=None</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley2182.trigger_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function sets the number of triggers that the 2182 will accept 
+before returning to an &#8220;idle&#8221; trigger state.</p>
+<p>Note that if the sample count parameter has been changed, the number of 
+readings taken will be a multiplication of sample count and trigger 
+count (see function sampleCount).</p>
+<p>If count is not specified, function queries the instrument for the 
+current trigger count setting. This is returned as an integer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>count</strong> &#8211; Number of triggers before returning to an &#8220;idle&#8221; 
+trigger state. One of {&lt;count&gt;|INFinity}</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley2182.trigger_delay">
+<tt class="descname">trigger_delay</tt><big>(</big><em>period=None</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley2182.trigger_delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command sets the time delay which the instrument will use 
+following receiving a trigger event before starting the measurement.</p>
+<p>Note that this function does not contain proper screening for &#8220;period&#8221; 
+being a malformed string. This allows you to include the units of your 
+specified value in the string.
+If no units are specified, the number will be read by the instrument as 
+having units of seconds.</p>
+<p>If no period is specified, function queries the instrument for the 
+current trigger delay and returns a float.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>period</strong> &#8211; Time between receiving a trigger event and the instrument 
+taking the reading. Values range from 0s to ~3600s, in ~20us 
+increments. One of {&lt;seconds&gt;|AUTO}</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley2182.trigger_source">
+<tt class="descname">trigger_source</tt><big>(</big><em>source=None</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley2182.trigger_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function sets the trigger source for measurements.</p>
+<p>If no source is specified, function queries the instrument for the 
+current setting. This is returned as a string. An example value is 
+&#8220;EXT&#8221;, without quotes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Desired trigger source. One of 
+{IMMediate|EXTernal|BUS|TIMer|MANual}</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="keithley6220">
+<h2><a class="reference internal" href="#instruments.keithley.Keithley6220" title="instruments.keithley.Keithley6220"><tt class="xref py py-class docutils literal"><span class="pre">Keithley6220</span></tt></a><a class="headerlink" href="#keithley6220" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.keithley.Keithley6220">
+<em class="property">class </em><tt class="descclassname">instruments.keithley.</tt><tt class="descname">Keithley6220</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley6220" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instruments.keithley.Keithley6220.disable">
+<tt class="descname">disable</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley6220.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the output current to zero and disable the output.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.keithley.Keithley6220.output">
+<tt class="descname">output</tt><big>(</big><em>current</em><big>)</big><a class="headerlink" href="#instruments.keithley.Keithley6220.output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the output current of the source.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>current</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Desired output current setting. Must be between
+-105mA and +105mA.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Keithley-brand Instruments</a><ul>
+<li><a class="reference internal" href="#keithley195"><tt class="docutils literal"><span class="pre">Keithley195</span></tt></a></li>
+<li><a class="reference internal" href="#keithley580"><tt class="docutils literal"><span class="pre">Keithley580</span></tt></a></li>
+<li><a class="reference internal" href="#keithley2182"><tt class="docutils literal"><span class="pre">Keithley2182</span></tt></a></li>
+<li><a class="reference internal" href="#keithley6220"><tt class="docutils literal"><span class="pre">Keithley6220</span></tt></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="hp.html"
+                        title="previous chapter">HP-brand Instruments</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="lakeshore.html"
+                        title="next chapter">Lakeshore-brand Instruments</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/apiref/keithley.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="lakeshore.html" title="Lakeshore-brand Instruments"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="hp.html" title="HP-brand Instruments"
+             >previous</a> |</li>
+        <li><a href="../index.html">InstrumentKit Library 1.0alpha1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >GPIB USB Adapter API Reference</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Steven Casagrande.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

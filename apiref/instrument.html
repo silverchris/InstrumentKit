@@ -160,6 +160,11 @@ is assumed to be 115200.</p>
 <dd></dd></dl>
 
 <dl class="classmethod">
+<dt id="instruments.Instrument.open_test">
+<em class="property">classmethod </em><tt class="descname">open_test</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.Instrument.open_test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
 <dt id="instruments.Instrument.open_usb">
 <em class="property">classmethod </em><tt class="descname">open_usb</tt><big>(</big><em>vid</em>, <em>pid</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_usb" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -310,6 +315,153 @@ all connection types.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="functiongenerator-abstract-class-for-function-generator-instruments">
+<h2><a class="reference internal" href="#instruments.FunctionGenerator" title="instruments.FunctionGenerator"><tt class="xref py py-class docutils literal"><span class="pre">FunctionGenerator</span></tt></a> - Abstract class for function generator instruments<a class="headerlink" href="#functiongenerator-abstract-class-for-function-generator-instruments" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.FunctionGenerator">
+<em class="property">class </em><tt class="descclassname">instruments.</tt><tt class="descname">FunctionGenerator</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.FunctionGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="class">
+<dt id="instruments.FunctionGenerator.Function">
+<em class="property">class </em><tt class="descname">Function</tt><a class="headerlink" href="#instruments.FunctionGenerator.Function" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.FunctionGenerator.Function.arbitrary">
+<tt class="descname">arbitrary</tt><em class="property"> = &lt;EnumValue: Function.arbitrary [value=ARB]&gt;</em><a class="headerlink" href="#instruments.FunctionGenerator.Function.arbitrary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.FunctionGenerator.Function.noise">
+<tt class="descname">noise</tt><em class="property"> = &lt;EnumValue: Function.noise [value=NOIS]&gt;</em><a class="headerlink" href="#instruments.FunctionGenerator.Function.noise" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.FunctionGenerator.Function.ramp">
+<tt class="descname">ramp</tt><em class="property"> = &lt;EnumValue: Function.ramp [value=RAMP]&gt;</em><a class="headerlink" href="#instruments.FunctionGenerator.Function.ramp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.FunctionGenerator.Function.sinusoid">
+<tt class="descname">sinusoid</tt><em class="property"> = &lt;EnumValue: Function.sinusoid [value=SIN]&gt;</em><a class="headerlink" href="#instruments.FunctionGenerator.Function.sinusoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.FunctionGenerator.Function.square">
+<tt class="descname">square</tt><em class="property"> = &lt;EnumValue: Function.square [value=SQU]&gt;</em><a class="headerlink" href="#instruments.FunctionGenerator.Function.square" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.FunctionGenerator.Function.triangle">
+<tt class="descname">triangle</tt><em class="property"> = &lt;EnumValue: Function.triangle [value=TRI]&gt;</em><a class="headerlink" href="#instruments.FunctionGenerator.Function.triangle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instruments.FunctionGenerator.VoltageMode">
+<em class="property">class </em><tt class="descclassname">FunctionGenerator.</tt><tt class="descname">VoltageMode</tt><a class="headerlink" href="#instruments.FunctionGenerator.VoltageMode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.FunctionGenerator.VoltageMode.dBm">
+<tt class="descname">dBm</tt><em class="property"> = &lt;EnumValue: VoltageMode.dBm [value=DBM]&gt;</em><a class="headerlink" href="#instruments.FunctionGenerator.VoltageMode.dBm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.FunctionGenerator.VoltageMode.peak_to_peak">
+<tt class="descname">peak_to_peak</tt><em class="property"> = &lt;EnumValue: VoltageMode.peak_to_peak [value=VPP]&gt;</em><a class="headerlink" href="#instruments.FunctionGenerator.VoltageMode.peak_to_peak" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.FunctionGenerator.VoltageMode.rms">
+<tt class="descname">rms</tt><em class="property"> = &lt;EnumValue: VoltageMode.rms [value=VRMS]&gt;</em><a class="headerlink" href="#instruments.FunctionGenerator.VoltageMode.rms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.FunctionGenerator.getfrequency">
+<tt class="descclassname">FunctionGenerator.</tt><tt class="descname">getfrequency</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.FunctionGenerator.getfrequency" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.FunctionGenerator.getfunction">
+<tt class="descclassname">FunctionGenerator.</tt><tt class="descname">getfunction</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.FunctionGenerator.getfunction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.FunctionGenerator.getoffset">
+<tt class="descclassname">FunctionGenerator.</tt><tt class="descname">getoffset</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.FunctionGenerator.getoffset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.FunctionGenerator.getphase">
+<tt class="descclassname">FunctionGenerator.</tt><tt class="descname">getphase</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.FunctionGenerator.getphase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.FunctionGenerator.setfrequency">
+<tt class="descclassname">FunctionGenerator.</tt><tt class="descname">setfrequency</tt><big>(</big><em>newval</em><big>)</big><a class="headerlink" href="#instruments.FunctionGenerator.setfrequency" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.FunctionGenerator.setfunction">
+<tt class="descclassname">FunctionGenerator.</tt><tt class="descname">setfunction</tt><big>(</big><em>newval</em><big>)</big><a class="headerlink" href="#instruments.FunctionGenerator.setfunction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.FunctionGenerator.setoffset">
+<tt class="descclassname">FunctionGenerator.</tt><tt class="descname">setoffset</tt><big>(</big><em>newval</em><big>)</big><a class="headerlink" href="#instruments.FunctionGenerator.setoffset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.FunctionGenerator.setphase">
+<tt class="descclassname">FunctionGenerator.</tt><tt class="descname">setphase</tt><big>(</big><em>newval</em><big>)</big><a class="headerlink" href="#instruments.FunctionGenerator.setphase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.FunctionGenerator.amplitude">
+<tt class="descclassname">FunctionGenerator.</tt><tt class="descname">amplitude</tt><a class="headerlink" href="#instruments.FunctionGenerator.amplitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the output amplitude of the function generator.</p>
+<p>If set with units of <span class="math">\(\text{dBm}\)</span>, then no voltage mode can
+be passed.</p>
+<p>If set with units of <span class="math">\(\text{V}\)</span> as a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or a
+<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> without a voltage mode, then the voltage mode is assumed to be
+peak-to-peak.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified, or assumed to be <span class="math">\(\text{V}\)</span> if not
+specified.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body">Either a <a class="reference external" href="http://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">tuple</span></tt></a> of a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> and a
+<a class="reference internal" href="#instruments.FunctionGenerator.VoltageMode" title="instruments.FunctionGenerator.VoltageMode"><tt class="xref py py-obj docutils literal"><span class="pre">FunctionGenerator.VoltageMode</span></tt></a>, or a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> 
+if no voltage mode applies.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.FunctionGenerator.frequency">
+<tt class="descclassname">FunctionGenerator.</tt><tt class="descname">frequency</tt><a class="headerlink" href="#instruments.FunctionGenerator.frequency" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.FunctionGenerator.function">
+<tt class="descclassname">FunctionGenerator.</tt><tt class="descname">function</tt><a class="headerlink" href="#instruments.FunctionGenerator.function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.FunctionGenerator.offset">
+<tt class="descclassname">FunctionGenerator.</tt><tt class="descname">offset</tt><a class="headerlink" href="#instruments.FunctionGenerator.offset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.FunctionGenerator.phase">
+<tt class="descclassname">FunctionGenerator.</tt><tt class="descname">phase</tt><a class="headerlink" href="#instruments.FunctionGenerator.phase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -323,6 +475,7 @@ all connection types.</p>
 <li><a class="reference internal" href="#">Instrument Base Classes</a><ul>
 <li><a class="reference internal" href="#instrument-base-class-for-instrument-communication"><tt class="docutils literal"><span class="pre">Instrument</span></tt> - Base class for instrument communication</a></li>
 <li><a class="reference internal" href="#multimeter-abstract-class-for-multimeter-instruments"><tt class="docutils literal"><span class="pre">Multimeter</span></tt> - Abstract class for multimeter instruments</a></li>
+<li><a class="reference internal" href="#functiongenerator-abstract-class-for-function-generator-instruments"><tt class="docutils literal"><span class="pre">FunctionGenerator</span></tt> - Abstract class for function generator instruments</a></li>
 </ul>
 </li>
 </ul>

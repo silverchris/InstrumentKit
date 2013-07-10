@@ -153,8 +153,8 @@ if the self test was sucessful or not.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="scpimultimeter-generic-multimeter-using-standard-scpi-commands">
-<h2><a class="reference internal" href="#instruments.generic_scpi.SCPIMultimeter" title="instruments.generic_scpi.SCPIMultimeter"><tt class="xref py py-class docutils literal"><span class="pre">SCPIMultimeter</span></tt></a> - Generic multimeter using standard SCPI commands<a class="headerlink" href="#scpimultimeter-generic-multimeter-using-standard-scpi-commands" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scpimultimeter-generic-multimeter-using-scpi-commands">
+<h2><a class="reference internal" href="#instruments.generic_scpi.SCPIMultimeter" title="instruments.generic_scpi.SCPIMultimeter"><tt class="xref py py-class docutils literal"><span class="pre">SCPIMultimeter</span></tt></a> - Generic multimeter using SCPI commands<a class="headerlink" href="#scpimultimeter-generic-multimeter-using-scpi-commands" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="instruments.generic_scpi.SCPIMultimeter">
 <em class="property">class </em><tt class="descclassname">instruments.generic_scpi.</tt><tt class="descname">SCPIMultimeter</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter" title="Permalink to this definition">¶</a></dt>
@@ -197,6 +197,67 @@ mode.</td>
 </dd></dl>
 
 </div>
+<div class="section" id="scpifunctiongenerator-generic-multimeter-using-scpi-commands">
+<h2><a class="reference internal" href="#instruments.generic_scpi.SCPIFunctionGenerator" title="instruments.generic_scpi.SCPIFunctionGenerator"><tt class="xref py py-class docutils literal"><span class="pre">SCPIFunctionGenerator</span></tt></a> - Generic multimeter using SCPI commands<a class="headerlink" href="#scpifunctiongenerator-generic-multimeter-using-scpi-commands" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.generic_scpi.SCPIFunctionGenerator">
+<em class="property">class </em><tt class="descclassname">instruments.generic_scpi.</tt><tt class="descname">SCPIFunctionGenerator</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIFunctionGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIFunctionGenerator.frequency">
+<tt class="descname">frequency</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIFunctionGenerator.frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the output frequency.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified, or assumed to be <span class="math">\(\text{Hz}\)</span> otherwise.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> or <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIFunctionGenerator.function">
+<tt class="descname">function</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIFunctionGenerator.function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the output function of the function generator</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">SCPIFunctionGenerator.Function</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIFunctionGenerator.offset">
+<tt class="descname">offset</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIFunctionGenerator.offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the offset voltage of the function generator.</p>
+<p>Set value should be within correct bounds of instrument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified  (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of units volts.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> with units volts.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIFunctionGenerator.phase">
+<tt class="descname">phase</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIFunctionGenerator.phase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -209,7 +270,8 @@ mode.</td>
   <ul>
 <li><a class="reference internal" href="#">Generic SCPI Instruments</a><ul>
 <li><a class="reference internal" href="#scpiinstrument-base-class-for-instruments-using-the-scpi-protocol"><tt class="docutils literal"><span class="pre">SCPIInstrument</span></tt> - Base class for instruments using the SCPI protocol</a></li>
-<li><a class="reference internal" href="#scpimultimeter-generic-multimeter-using-standard-scpi-commands"><tt class="docutils literal"><span class="pre">SCPIMultimeter</span></tt> - Generic multimeter using standard SCPI commands</a></li>
+<li><a class="reference internal" href="#scpimultimeter-generic-multimeter-using-scpi-commands"><tt class="docutils literal"><span class="pre">SCPIMultimeter</span></tt> - Generic multimeter using SCPI commands</a></li>
+<li><a class="reference internal" href="#scpifunctiongenerator-generic-multimeter-using-scpi-commands"><tt class="docutils literal"><span class="pre">SCPIFunctionGenerator</span></tt> - Generic multimeter using SCPI commands</a></li>
 </ul>
 </li>
 </ul>

@@ -1,0 +1,382 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Tektronix-brand Instruments &mdash; InstrumentKit Library 1.0alpha1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0alpha1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="InstrumentKit Library 1.0alpha1 documentation" href="../index.html" />
+    <link rel="up" title="GPIB USB Adapter API Reference" href="index.html" />
+    <link rel="next" title="Configuration File Support" href="config.html" />
+    <link rel="prev" title="Stanford Research Systems Instruments" href="srs.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="config.html" title="Configuration File Support"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="srs.html" title="Stanford Research Systems Instruments"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">InstrumentKit Library 1.0alpha1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">GPIB USB Adapter API Reference</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="tektronix-brand-instruments">
+<h1>Tektronix-brand Instruments<a class="headerlink" href="#tektronix-brand-instruments" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tekawg2000">
+<h2><a class="reference internal" href="#instruments.tektronix.TekAWG2000" title="instruments.tektronix.TekAWG2000"><tt class="xref py py-class docutils literal"><span class="pre">TekAWG2000</span></tt></a><a class="headerlink" href="#tekawg2000" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.tektronix.TekAWG2000">
+<em class="property">class </em><tt class="descclassname">instruments.tektronix.</tt><tt class="descname">TekAWG2000</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.tektronix.TekAWG2000" title="Permalink to this definition">¶</a></dt>
+<dd><p>Communicates with a Tektronix AWG2000 series instrument using the SCPI
+commands documented in the user&#8217;s guide.</p>
+<dl class="class">
+<dt id="instruments.tektronix.TekAWG2000.Polarity">
+<em class="property">class </em><tt class="descname">Polarity</tt><a class="headerlink" href="#instruments.tektronix.TekAWG2000.Polarity" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.tektronix.TekAWG2000.Polarity.inverted">
+<tt class="descname">inverted</tt><em class="property"> = &lt;EnumValue: Polarity.inverted [value=INVERTED]&gt;</em><a class="headerlink" href="#instruments.tektronix.TekAWG2000.Polarity.inverted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekAWG2000.Polarity.normal">
+<tt class="descname">normal</tt><em class="property"> = &lt;EnumValue: Polarity.normal [value=NORMAL]&gt;</em><a class="headerlink" href="#instruments.tektronix.TekAWG2000.Polarity.normal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instruments.tektronix.TekAWG2000.Shape">
+<em class="property">class </em><tt class="descclassname">TekAWG2000.</tt><tt class="descname">Shape</tt><a class="headerlink" href="#instruments.tektronix.TekAWG2000.Shape" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.tektronix.TekAWG2000.Shape.pulse">
+<tt class="descname">pulse</tt><em class="property"> = &lt;EnumValue: Shape.pulse [value=PULSE]&gt;</em><a class="headerlink" href="#instruments.tektronix.TekAWG2000.Shape.pulse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekAWG2000.Shape.ramp">
+<tt class="descname">ramp</tt><em class="property"> = &lt;EnumValue: Shape.ramp [value=RAMP]&gt;</em><a class="headerlink" href="#instruments.tektronix.TekAWG2000.Shape.ramp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekAWG2000.Shape.sine">
+<tt class="descname">sine</tt><em class="property"> = &lt;EnumValue: Shape.sine [value=SINUSOID]&gt;</em><a class="headerlink" href="#instruments.tektronix.TekAWG2000.Shape.sine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekAWG2000.Shape.square">
+<tt class="descname">square</tt><em class="property"> = &lt;EnumValue: Shape.square [value=SQUARE]&gt;</em><a class="headerlink" href="#instruments.tektronix.TekAWG2000.Shape.square" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekAWG2000.Shape.triangle">
+<tt class="descname">triangle</tt><em class="property"> = &lt;EnumValue: Shape.triangle [value=TRIANGLE]&gt;</em><a class="headerlink" href="#instruments.tektronix.TekAWG2000.Shape.triangle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.tektronix.TekAWG2000.upload_waveform">
+<tt class="descclassname">TekAWG2000.</tt><tt class="descname">upload_waveform</tt><big>(</big><em>yzero</em>, <em>ymult</em>, <em>xincr</em>, <em>waveform</em><big>)</big><a class="headerlink" href="#instruments.tektronix.TekAWG2000.upload_waveform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uploads a waveform from the PC to the instrument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>yzero</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>) &#8211; Y-axis origin offset</li>
+<li><strong>ymult</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>) &#8211; Y-axis data point multiplier</li>
+<li><strong>xincr</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>) &#8211; X-axis data point increment</li>
+<li><strong>waveform</strong> (<a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.7)"><em>numpy.ndarray</em></a>) &#8211; Numpy array of values representing the 
+waveform to be uploaded. This array should be normalized. This means
+that all absolute values contained within the array should not 
+exceed 1.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekAWG2000.channel">
+<tt class="descclassname">TekAWG2000.</tt><tt class="descname">channel</tt><a class="headerlink" href="#instruments.tektronix.TekAWG2000.channel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekAWG2000.waveform_name">
+<tt class="descclassname">TekAWG2000.</tt><tt class="descname">waveform_name</tt><a class="headerlink" href="#instruments.tektronix.TekAWG2000.waveform_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the destination waveform name for upload.</p>
+<p>This is the file name that will be used on the AWG for any following 
+waveform data that is uploaded.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="tekdpo4104">
+<h2><a class="reference internal" href="#instruments.tektronix.TekDPO4104" title="instruments.tektronix.TekDPO4104"><tt class="xref py py-class docutils literal"><span class="pre">TekDPO4104</span></tt></a><a class="headerlink" href="#tekdpo4104" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.tektronix.TekDPO4104">
+<em class="property">class </em><tt class="descclassname">instruments.tektronix.</tt><tt class="descname">TekDPO4104</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.tektronix.TekDPO4104" title="Permalink to this definition">¶</a></dt>
+<dd><p>Communicates with a Tektronix DPO4104 oscilloscope using the SCPI commands
+documented in the user&#8217;s guide.</p>
+<dl class="class">
+<dt id="instruments.tektronix.TekDPO4104.Coupling">
+<em class="property">class </em><tt class="descname">Coupling</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.Coupling" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.tektronix.TekDPO4104.Coupling.ac">
+<tt class="descname">ac</tt><em class="property"> = &lt;EnumValue: Coupling.ac [value=AC]&gt;</em><a class="headerlink" href="#instruments.tektronix.TekDPO4104.Coupling.ac" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekDPO4104.Coupling.dc">
+<tt class="descname">dc</tt><em class="property"> = &lt;EnumValue: Coupling.dc [value=DC]&gt;</em><a class="headerlink" href="#instruments.tektronix.TekDPO4104.Coupling.dc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekDPO4104.Coupling.ground">
+<tt class="descname">ground</tt><em class="property"> = &lt;EnumValue: Coupling.ground [value=GND]&gt;</em><a class="headerlink" href="#instruments.tektronix.TekDPO4104.Coupling.ground" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.tektronix.TekDPO4104.force_trigger">
+<tt class="descclassname">TekDPO4104.</tt><tt class="descname">force_trigger</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.tektronix.TekDPO4104.force_trigger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forces a trigger event to occur on the attached oscilloscope.
+Note that this is distinct from the standard SCPI &#8220;<a href="#id1"><span class="problematic" id="id2">*</span></a>TRG&#8221; functionality.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekDPO4104.aquisition_continuous">
+<tt class="descclassname">TekDPO4104.</tt><tt class="descname">aquisition_continuous</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.aquisition_continuous" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets whether the aquisition is continuous (&#8220;run/stop mode&#8221;)
+or whether aquisiton halts after the next sequence (&#8220;single mode&#8221;).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">bool</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekDPO4104.aquisition_length">
+<tt class="descclassname">TekDPO4104.</tt><tt class="descname">aquisition_length</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.aquisition_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekDPO4104.aquisition_running">
+<tt class="descclassname">TekDPO4104.</tt><tt class="descname">aquisition_running</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.aquisition_running" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the aquisition state of the attached instrument.
+This property is <a class="reference external" href="http://docs.python.org/library/constants.html#True" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a> if the aquisition is running,
+and is <a class="reference external" href="http://docs.python.org/library/constants.html#False" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">False</span></tt></a> otherwise.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">bool</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekDPO4104.channel">
+<tt class="descclassname">TekDPO4104.</tt><tt class="descname">channel</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.channel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekDPO4104.data_source">
+<tt class="descclassname">TekDPO4104.</tt><tt class="descname">data_source</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.data_source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekDPO4104.data_width">
+<tt class="descclassname">TekDPO4104.</tt><tt class="descname">data_width</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.data_width" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekDPO4104.math">
+<tt class="descclassname">TekDPO4104.</tt><tt class="descname">math</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.math" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekDPO4104.ref">
+<tt class="descclassname">TekDPO4104.</tt><tt class="descname">ref</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.ref" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekDPO4104.y_offset">
+<tt class="descclassname">TekDPO4104.</tt><tt class="descname">y_offset</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.y_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the Y offset of the currently selected data source.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="tektds224">
+<h2><a class="reference internal" href="#instruments.tektronix.TekTDS224" title="instruments.tektronix.TekTDS224"><tt class="xref py py-class docutils literal"><span class="pre">TekTDS224</span></tt></a><a class="headerlink" href="#tektds224" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instruments.tektronix.TekTDS224">
+<em class="property">class </em><tt class="descclassname">instruments.tektronix.</tt><tt class="descname">TekTDS224</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.tektronix.TekTDS224" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instruments.tektronix.TekTDS224.coupling">
+<tt class="descname">coupling</tt><big>(</big><em>channel</em>, <em>setting</em><big>)</big><a class="headerlink" href="#instruments.tektronix.TekTDS224.coupling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set input coupling of specified channel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>channel</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) &#8211; Input channel which will have the input coupling 
+changed. One of  <tt class="docutils literal"><span class="pre">{1|2|3|4|CH1|CH2|CH3|CH4}</span></tt>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.tektronix.TekTDS224.read_waveform">
+<tt class="descname">read_waveform</tt><big>(</big><em>channel</em>, <em>fmt</em><big>)</big><a class="headerlink" href="#instruments.tektronix.TekTDS224.read_waveform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read waveform from the oscilloscope.
+This function is all inclusive. After reading the data from the 
+oscilloscope, it unpacks the data and scales it accordingly.</p>
+<p>Supports both ASCII and binary waveform transfer. For 2500 data 
+points, with a width of 2 bytes, transfer takes approx 2 seconds for 
+binary, and 7 seconds for ASCII over Galvant Industries&#8217; GPIBUSB 
+adapter.</p>
+<p>Function returns a list [x,y], where both x and y are numpy arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>channel</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Channel which will have its waveform transfered. 
+One of <tt class="docutils literal"><span class="pre">{CH1|CH2|CH3|CH4|REFA|REFB|REFC|REFD|MATH}</span></tt></li>
+<li><strong>fmt</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Data transfer format. Either ASCII or binary. One of 
+<tt class="docutils literal"><span class="pre">{ASCII,BINARY}</span></tt></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">list</span></tt></a> of <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.7)"><tt class="xref py py-obj docutils literal"><span class="pre">numpy.ndarray</span></tt></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tektronix-brand Instruments</a><ul>
+<li><a class="reference internal" href="#tekawg2000"><tt class="docutils literal"><span class="pre">TekAWG2000</span></tt></a></li>
+<li><a class="reference internal" href="#tekdpo4104"><tt class="docutils literal"><span class="pre">TekDPO4104</span></tt></a></li>
+<li><a class="reference internal" href="#tektds224"><tt class="docutils literal"><span class="pre">TekTDS224</span></tt></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="srs.html"
+                        title="previous chapter">Stanford Research Systems Instruments</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="config.html"
+                        title="next chapter">Configuration File Support</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/apiref/tektronix.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="config.html" title="Configuration File Support"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="srs.html" title="Stanford Research Systems Instruments"
+             >previous</a> |</li>
+        <li><a href="../index.html">InstrumentKit Library 1.0alpha1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >GPIB USB Adapter API Reference</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Steven Casagrande.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

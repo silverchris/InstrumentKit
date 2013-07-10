@@ -28,8 +28,8 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="InstrumentKit Library 1.0alpha1 documentation" href="../index.html" />
     <link rel="up" title="GPIB USB Adapter API Reference" href="index.html" />
-    <link rel="next" title="Configuration File Support" href="config.html" />
-    <link rel="prev" title="Stanford Research Systems Instruments" href="srs.html" /> 
+    <link rel="next" title="Stanford Research Systems Instruments" href="srs.html" />
+    <link rel="prev" title="Lakeshore-brand Instruments" href="lakeshore.html" /> 
   </head>
   <body>
     <div class="related">
@@ -39,10 +39,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="config.html" title="Configuration File Support"
+          <a href="srs.html" title="Stanford Research Systems Instruments"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="srs.html" title="Stanford Research Systems Instruments"
+          <a href="lakeshore.html" title="Lakeshore-brand Instruments"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">InstrumentKit Library 1.0alpha1 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">GPIB USB Adapter API Reference</a> &raquo;</li> 
@@ -89,8 +89,13 @@ Must be in <tt class="docutils literal"><span class="pre">xrange(1,</span> <span
 </dd></dl>
 
 <dl class="method">
+<dt id="instruments.other.NewportESP301.execute_bulk_command">
+<tt class="descname">execute_bulk_command</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301.execute_bulk_command" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="instruments.other.NewportESP301.reset">
-<tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301.reset" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">reset</tt><big>(</big><em>errcheck=True</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301.reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Causes the device to perform a hardware reset. Note that
 this method is only effective if the watchdog timer is enabled
 by the physical jumpers on the ESP-301. Please see the <a class="reference external" href="http://assets.newport.com/webDocuments-EN/images/14294.pdf">user&#8217;s guide</a>
@@ -105,7 +110,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="instruments.other.NewportESP301.search_for_home">
-<tt class="descname">search_for_home</tt><big>(</big><em>search_mode=&lt;EnumValue: NewportESP301HomeSearchMode.zero_position_count [value=0]&gt;</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301.search_for_home" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">search_for_home</tt><big>(</big><em>axis</em>, <em>search_mode=0</em>, <em>errcheck=True</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301.search_for_home" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches each axis sequentially
 for home using the method specified by <tt class="docutils literal"><span class="pre">search_mode</span></tt>.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -165,7 +170,7 @@ as relative to the current position of this axis.</li>
 
 <dl class="method">
 <dt id="instruments.other.NewportESP301Axis.search_for_home">
-<tt class="descname">search_for_home</tt><big>(</big><em>search_mode=&lt;EnumValue: NewportESP301HomeSearchMode.zero_position_count [value=0]&gt;</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis.search_for_home" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">search_for_home</tt><big>(</big><em>search_mode=0</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis.search_for_home" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches this axis only
 for home using the method specified by <tt class="docutils literal"><span class="pre">search_mode</span></tt>.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -178,6 +183,11 @@ Home has been found.</td>
 </tbody>
 </table>
 </dd></dl>
+
+<dl class="method">
+<dt id="instruments.other.NewportESP301Axis.stop_motion">
+<tt class="descname">stop_motion</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis.stop_motion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="instruments.other.NewportESP301Axis.wait_for_motion">
@@ -201,14 +211,49 @@ indefinitely.</li>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="instruments.other.NewportESP301Axis.wait_for_position">
+<tt class="descname">wait_for_position</tt><big>(</big><em>position</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis.wait_for_position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instruments.other.NewportESP301Axis.wait_for_stop">
+<tt class="descname">wait_for_stop</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis.wait_for_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.acceleration">
 <tt class="descname">acceleration</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.acceleration" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="instruments.other.NewportESP301Axis.deacceleration">
-<tt class="descname">deacceleration</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.deacceleration" title="Permalink to this definition">¶</a></dt>
+<dt id="instruments.other.NewportESP301Axis.axis_id">
+<tt class="descname">axis_id</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.axis_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.other.NewportESP301Axis.deceleration">
+<tt class="descname">deceleration</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.deceleration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.other.NewportESP301Axis.encoder_resolution">
+<tt class="descname">encoder_resolution</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.encoder_resolution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.other.NewportESP301Axis.gear_constant">
+<tt class="descname">gear_constant</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.gear_constant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.other.NewportESP301Axis.gear_ratio">
+<tt class="descname">gear_ratio</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.gear_ratio" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.other.NewportESP301Axis.home">
+<tt class="descname">home</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.home" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -221,8 +266,43 @@ command.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="instruments.other.NewportESP301Axis.left_limit">
+<tt class="descname">left_limit</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.left_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.other.NewportESP301Axis.max_acceleration">
+<tt class="descname">max_acceleration</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.max_acceleration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.other.NewportESP301Axis.max_deacceleration">
+<tt class="descname">max_deacceleration</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.max_deacceleration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.other.NewportESP301Axis.max_deceleration">
+<tt class="descname">max_deceleration</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.max_deceleration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.max_velocity">
 <tt class="descname">max_velocity</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.max_velocity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.other.NewportESP301Axis.position">
+<tt class="descname">position</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.other.NewportESP301Axis.right_limit">
+<tt class="descname">right_limit</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.right_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.other.NewportESP301Axis.units">
+<tt class="descname">units</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.units" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -399,11 +479,11 @@ Phase Matrix FSW-0020.</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="srs.html"
-                        title="previous chapter">Stanford Research Systems Instruments</a></p>
+  <p class="topless"><a href="lakeshore.html"
+                        title="previous chapter">Lakeshore-brand Instruments</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="config.html"
-                        title="next chapter">Configuration File Support</a></p>
+  <p class="topless"><a href="srs.html"
+                        title="next chapter">Stanford Research Systems Instruments</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/apiref/other.txt"
@@ -433,10 +513,10 @@ Phase Matrix FSW-0020.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="config.html" title="Configuration File Support"
+          <a href="srs.html" title="Stanford Research Systems Instruments"
              >next</a> |</li>
         <li class="right" >
-          <a href="srs.html" title="Stanford Research Systems Instruments"
+          <a href="lakeshore.html" title="Lakeshore-brand Instruments"
              >previous</a> |</li>
         <li><a href="../index.html">InstrumentKit Library 1.0alpha1 documentation</a> &raquo;</li>
           <li><a href="index.html" >GPIB USB Adapter API Reference</a> &raquo;</li> 
