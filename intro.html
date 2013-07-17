@@ -27,7 +27,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="InstrumentKit Library 1.0alpha1 documentation" href="index.html" />
-    <link rel="next" title="GPIB USB Adapter API Reference" href="apiref/index.html" />
+    <link rel="next" title="InstrumentKit API Reference" href="apiref/index.html" />
     <link rel="prev" title="Welcome to InstrumentKit Library’s documentation!" href="index.html" /> 
   </head>
   <body>
@@ -38,7 +38,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="apiref/index.html" title="GPIB USB Adapter API Reference"
+          <a href="apiref/index.html" title="InstrumentKit API Reference"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Welcome to InstrumentKit Library’s documentation!"
@@ -54,6 +54,11 @@
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p><strong>InstrumentKit</strong> allows for the control of scientific instruments in a
+platform-independent manner, abstracted from the details of how the instrument
+is connected. In particular, InstrumentKit supports connecting to instruments
+via serial port (including USB-based virtual serial connections), GPIB, USBTMC,
+TCP/IP or by using the VISA layer.</p>
 <div class="section" id="installing">
 <h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="dependencies">
@@ -76,6 +81,75 @@
 <li><a class="reference external" href="http://sourceforge.net/apps/trac/pyusb/">PyUSB</a> (version 1.0a or higher, required for raw USB support)</li>
 <li><a class="reference external" href="http://pyvisa.sourceforge.net/">PyVISA</a> (required for accessing instruments via VISA library)</li>
 </ul>
+</div>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="instruments-and-instrument-classes">
+<h3>Instruments and Instrument Classes<a class="headerlink" href="#instruments-and-instrument-classes" title="Permalink to this headline">¶</a></h3>
+<p>Each make and model of instrument that is supported by InstrumentKit is
+represented by a specific class, as documented in the <a class="reference internal" href="apiref/index.html#apiref"><em>InstrumentKit API Reference</em></a>.
+Instruments that offer common functionality, such as multimeters, are
+represented by base classes, such that specific instruments can be exchanged
+without affecting code, so long as the proper functionality is provided.</p>
+<p>For some instruments, a specific instrument class is not needed, as the
+<a class="reference internal" href="apiref/generic_scpi.html#apiref-generic-scpi"><em>Generic SCPI Instruments</em></a> classes can be used to expose functionality of these
+instruments. If you don&#8217;t see your specific instrument listed, then, please
+check in the instrument&#8217;s manual whether it uses a standard set of SCPI
+commands.</p>
+</div>
+<div class="section" id="connecting-to-instruments">
+<h3>Connecting to Instruments<a class="headerlink" href="#connecting-to-instruments" title="Permalink to this headline">¶</a></h3>
+<p>Each instrument class in InstrumentKit is constructed using a <em>communicator</em>
+class that wraps a file-like object with additional information about newlines,
+terminators and other useful details. Most of the time, it is easiest to not
+worry with creating communicators directly, as convienence methods are provided
+to quickly connect to instruments over a wide range of common communication
+protocols and physical connections.</p>
+<p>For instance, to connect to a generic SCPI-compliant multimeter using a
+<a class="reference external" href="http://galvant.ca/shop/gpibusb/">Galvant Industries GPIB-USB adapter</a>, the
+<a class="reference internal" href="apiref/instrument.html#instruments.Instrument.open_gpibusb" title="instruments.Instrument.open_gpibusb"><tt class="xref py py-obj docutils literal"><span class="pre">open_gpibusb</span></tt></a> method can be used:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">instruments</span> <span class="kn">as</span> <span class="nn">ik</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inst</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">generic_scpi</span><span class="o">.</span><span class="n">SCPIMultimeter</span><span class="o">.</span><span class="n">open_gpibusb</span><span class="p">(</span><span class="s">&#39;/dev/ttyUSB0&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Similarly, many instruments connected by USB use an FTDI or similar chip to
+emulate serial ports, and can be connected using the
+<a class="reference internal" href="apiref/instrument.html#instruments.Instrument.open_serial" title="instruments.Instrument.open_serial"><tt class="xref py py-obj docutils literal"><span class="pre">open_serial</span></tt></a> method by specifying the serial port
+device file (on Linux) or name (on Windows) along with the baud rate of the
+emulated port:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">inst</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">generic_scpi</span><span class="o">.</span><span class="n">SCPIMultimeter</span><span class="o">.</span><span class="n">open_serial</span><span class="p">(</span><span class="s">&#39;COM10&#39;</span><span class="p">,</span> <span class="mi">115200</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As a convienence, an instrument connection can also be specified using a
+uniform resource identifier (URI) string:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">inst</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">generic_scpi</span><span class="o">.</span><span class="n">SCPIMultimeter</span><span class="o">.</span><span class="n">open_from_uri</span><span class="p">(</span><span class="s">&#39;tcpip://192.168.0.10:4100&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Instrument connection URIs of this kind are useful for storing in configuration
+files, as the same method, <a class="reference internal" href="apiref/instrument.html#instruments.Instrument.open_from_uri" title="instruments.Instrument.open_from_uri"><tt class="xref py py-obj docutils literal"><span class="pre">open_from_uri</span></tt></a>, is used,
+regardless of the communication protocol and physical connection being used.
+InstrumentKit provides special support for this usage, and can load instruments
+from specifications listed in a YAML-formatted configuration file. See the
+<a class="reference internal" href="apiref/config.html#instruments.load_instruments" title="instruments.load_instruments"><tt class="xref py py-obj docutils literal"><span class="pre">load_instruments</span></tt></a> function for more details.</p>
+</div>
+<div class="section" id="using-connected-instruments">
+<h3>Using Connected Instruments<a class="headerlink" href="#using-connected-instruments" title="Permalink to this headline">¶</a></h3>
+<p>Once connected, functionality of each instrument is exposed by methods and
+properties of the instrument object. For instance, the name of an instrument
+can be queried by getting the <tt class="docutils literal"><span class="pre">name</span></tt> property:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">inst</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<p>For details of how to use each instrument, please see the <a class="reference internal" href="apiref/index.html#apiref"><em>InstrumentKit API Reference</em></a> entry
+for that instrument&#8217;s class. If that class does not implement a given command,
+raw commands and queries can be issued by using the
+<a class="reference internal" href="apiref/instrument.html#instruments.Instrument.sendcmd" title="instruments.Instrument.sendcmd"><tt class="xref py py-obj docutils literal"><span class="pre">sendcmd</span></tt></a> and <a class="reference internal" href="apiref/instrument.html#instruments.Instrument.query" title="instruments.Instrument.query"><tt class="xref py py-obj docutils literal"><span class="pre">query</span></tt></a> methods,
+respectively:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">inst</span><span class="o">.</span><span class="n">sendcmd</span><span class="p">(</span><span class="s">&#39;DATA&#39;</span><span class="p">)</span> <span class="c"># Send command with no response</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s">&#39;*IDN?&#39;</span><span class="p">)</span> <span class="c"># Send command and retrieve response</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -119,6 +193,12 @@ this on a multi-user system with untrusted users.</p>
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li><a class="reference internal" href="#instruments-and-instrument-classes">Instruments and Instrument Classes</a></li>
+<li><a class="reference internal" href="#connecting-to-instruments">Connecting to Instruments</a></li>
+<li><a class="reference internal" href="#using-connected-instruments">Using Connected Instruments</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#os-specific-instructions">OS-Specific Instructions</a><ul>
 <li><a class="reference internal" href="#linux">Linux</a><ul>
 <li><a class="reference internal" href="#raw-usb-device-configuration">Raw USB Device Configuration</a></li>
@@ -135,7 +215,7 @@ this on a multi-user system with untrusted users.</p>
                         title="previous chapter">Welcome to InstrumentKit Library&#8217;s documentation!</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="apiref/index.html"
-                        title="next chapter">GPIB USB Adapter API Reference</a></p>
+                        title="next chapter">InstrumentKit API Reference</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/intro.txt"
@@ -165,7 +245,7 @@ this on a multi-user system with untrusted users.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="apiref/index.html" title="GPIB USB Adapter API Reference"
+          <a href="apiref/index.html" title="InstrumentKit API Reference"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Welcome to InstrumentKit Library’s documentation!"
