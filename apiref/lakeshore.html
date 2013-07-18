@@ -62,6 +62,13 @@
 <dt id="instruments.lakeshore.Lakeshore340">
 <em class="property">class </em><tt class="descclassname">instruments.lakeshore.</tt><tt class="descname">Lakeshore340</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.lakeshore.Lakeshore340" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Lakeshore340 is a multi-sensor cryogenic temperature controller.</p>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">instruments</span> <span class="kn">as</span> <span class="nn">ik</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inst</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">lakeshore</span><span class="o">.</span><span class="n">Lakeshore340</span><span class="o">.</span><span class="n">open_gpibusb</span><span class="p">(</span><span class="s">&#39;/dev/ttyUSB0&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">inst</span><span class="o">.</span><span class="n">sensor</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">temperature</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">inst</span><span class="o">.</span><span class="n">sensor</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">temperature</span>
+</pre></div>
+</div>
 <dl class="attribute">
 <dt id="instruments.lakeshore.Lakeshore340.sensor">
 <tt class="descname">sensor</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore340.sensor" title="Permalink to this definition">¶</a></dt>
@@ -73,6 +80,41 @@ one would access a list.</p>
 </pre></div>
 </div>
 <p>The Lakeshore 340 supports up to 2 sensors (index 0-1).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#instruments.lakeshore._Lakeshore340Sensor" title="instruments.lakeshore._Lakeshore340Sensor"><tt class="xref py py-obj docutils literal"><span class="pre">_Lakeshore340Sensor</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instruments.lakeshore._Lakeshore340Sensor">
+<em class="property">class </em><tt class="descclassname">instruments.lakeshore.</tt><tt class="descname">_Lakeshore340Sensor</tt><big>(</big><em>parent</em>, <em>idx</em><big>)</big><a class="headerlink" href="#instruments.lakeshore._Lakeshore340Sensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing a sensor attached to the Lakeshore 340.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This class should NOT be manually created by the user. It is 
+designed to be initialized by the <a class="reference internal" href="#instruments.lakeshore.Lakeshore340" title="instruments.lakeshore.Lakeshore340"><tt class="xref py py-obj docutils literal"><span class="pre">Lakeshore340</span></tt></a> class.</p>
+</div>
+<dl class="attribute">
+<dt id="instruments.lakeshore._Lakeshore340Sensor.temperature">
+<tt class="descname">temperature</tt><a class="headerlink" href="#instruments.lakeshore._Lakeshore340Sensor.temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the temperature of the specified sensor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">Kelvin</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -85,6 +127,12 @@ one would access a list.</p>
 <em class="property">class </em><tt class="descclassname">instruments.lakeshore.</tt><tt class="descname">Lakeshore370</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.lakeshore.Lakeshore370" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Lakeshore 370 is a multichannel AC resistance bridge for use in low 
 temperature dilution refridgerator setups.</p>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">instruments</span> <span class="kn">as</span> <span class="nn">ik</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bridge</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">lakeshore</span><span class="o">.</span><span class="n">Lakeshore370</span><span class="o">.</span><span class="n">open_gpibusb</span><span class="p">(</span><span class="s">&#39;/dev/ttyUSB0&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">inst</span><span class="o">.</span><span class="n">channel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">resistance</span>
+</pre></div>
+</div>
 <dl class="attribute">
 <dt id="instruments.lakeshore.Lakeshore370.channel">
 <tt class="descname">channel</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore370.channel" title="Permalink to this definition">¶</a></dt>
@@ -96,6 +144,33 @@ one would access a list.</p>
 </pre></div>
 </div>
 <p>The Lakeshore 370 supports up to 16 channels (index 0-15).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instruments.lakeshore._Lakeshore370Channel">
+<em class="property">class </em><tt class="descclassname">instruments.lakeshore.</tt><tt class="descname">_Lakeshore370Channel</tt><big>(</big><em>parent</em>, <em>idx</em><big>)</big><a class="headerlink" href="#instruments.lakeshore._Lakeshore370Channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing a sensor attached to the Lakeshore 370.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This class should NOT be manually created by the user. It is 
+designed to be initialized by the <a class="reference internal" href="#instruments.lakeshore.Lakeshore370" title="instruments.lakeshore.Lakeshore370"><tt class="xref py py-obj docutils literal"><span class="pre">Lakeshore370</span></tt></a> class.</p>
+</div>
+<dl class="attribute">
+<dt id="instruments.lakeshore._Lakeshore370Channel.resistance">
+<tt class="descname">resistance</tt><a class="headerlink" href="#instruments.lakeshore._Lakeshore370Channel.resistance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the resistance of the specified sensor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">Ohm</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
