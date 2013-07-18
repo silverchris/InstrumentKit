@@ -127,6 +127,39 @@ peakDisp = {POSITIVE|NEGATIVE|BOTH},string</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.control_mode">
+<tt class="descname">control_mode</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.control_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the control mode setting. False corresponds to the field
+control ramp being disables, while True enables the closed loop PI
+field control.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">bool</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.control_slope_limit">
+<tt class="descname">control_slope_limit</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.control_slope_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the I value for the field control ramp.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of units volt / minute.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="instruments.lakeshore.Lakeshore475.field">
 <tt class="descname">field</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.field" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read field from connected probe.</p>
@@ -135,6 +168,38 @@ peakDisp = {POSITIVE|NEGATIVE|BOTH},string</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.field_control_params">
+<tt class="descname">field_control_params</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.field_control_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the parameters associated with the field control ramp.
+These are the P, I, ramp rate, and control slope limit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">tuple</span></tt></a> of 2 <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> and 2 <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.field_setpoint">
+<tt class="descname">field_setpoint</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.field_setpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the final setpoint of the field control ramp.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of units Gauss.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> with units Gauss</td>
 </tr>
 </tbody>
 </table>
@@ -150,7 +215,52 @@ If specified as an <a class="reference external" href="http://docs.python.org/li
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">UnitQuantity</span></tt>, <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a></td>
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">UnitQuantity</span></tt>, <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.i_value">
+<tt class="descname">i_value</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.i_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the I value for the field control ramp.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.p_value">
+<tt class="descname">p_value</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.p_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the P value for the field control ramp.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.ramp_rate">
+<tt class="descname">ramp_rate</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.ramp_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the ramp rate value for the field control ramp.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of current field units / minute.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></td>
 </tr>
 </tbody>
 </table>

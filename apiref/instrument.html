@@ -27,9 +27,9 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="InstrumentKit Library 1.0alpha1 documentation" href="../index.html" />
-    <link rel="up" title="GPIB USB Adapter API Reference" href="index.html" />
+    <link rel="up" title="InstrumentKit API Reference" href="index.html" />
     <link rel="next" title="Generic SCPI Instruments" href="generic_scpi.html" />
-    <link rel="prev" title="GPIB USB Adapter API Reference" href="index.html" /> 
+    <link rel="prev" title="InstrumentKit API Reference" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -42,10 +42,10 @@
           <a href="generic_scpi.html" title="Generic SCPI Instruments"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="GPIB USB Adapter API Reference"
+          <a href="index.html" title="InstrumentKit API Reference"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">InstrumentKit Library 1.0alpha1 documentation</a> &raquo;</li>
-          <li><a href="index.html" accesskey="U">GPIB USB Adapter API Reference</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">InstrumentKit API Reference</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -99,6 +99,10 @@ is connected by the Linux <tt class="docutils literal"><span class="pre">usbtmc<
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of the character device to open.</td>
 </tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#instruments.Instrument" title="instruments.Instrument"><tt class="xref py py-obj docutils literal"><span class="pre">Instrument</span></tt></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Object representing the connected instrument.</td>
+</tr>
 </tbody>
 </table>
 </dd></dl>
@@ -135,7 +139,7 @@ is assumed to be 115200.</p>
 </table>
 <div class="admonition-see-also admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a href="#id1"><span class="problematic" id="id2">`PySerial`_</span></a> documentation for serial port URI format</p>
+<p class="last"><a class="reference external" href="http://pyserial.sourceforge.net/">PySerial</a> documentation for serial port URI format</p>
 </div>
 </dd></dl>
 
@@ -147,17 +151,105 @@ is assumed to be 115200.</p>
 <dl class="classmethod">
 <dt id="instruments.Instrument.open_gpibusb">
 <em class="property">classmethod </em><tt class="descname">open_gpibusb</tt><big>(</big><em>port</em>, <em>gpib_address</em>, <em>timeout=3</em>, <em>writeTimeout=3</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_gpibusb" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Opens an instrument, connecting via a
+<a class="reference external" href="http://galvant.ca/shop/gpibusb/">Galvant Industries GPIB-USB adapter</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>port</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of the the port or device file to open a
+connection on. Note that because the GI GPIB-USB
+adapter identifies as a serial port to the operating system, this
+should be the name of a serial port.</li>
+<li><strong>gpib_address</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Address on the connected GPIB bus assigned to
+the instrument.</li>
+<li><strong>timeout</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Number of seconds to wait when reading from the
+instrument before timing out.</li>
+<li><strong>writeTimeout</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Number of seconds to wait when writing to the
+instrument before timing out.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#instruments.Instrument" title="instruments.Instrument"><tt class="xref py py-obj docutils literal"><span class="pre">Instrument</span></tt></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Object representing the connected instrument.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://pyserial.sourceforge.net/pyserial_api.html#serial.Serial" title="(in pySerial v2.6)"><tt class="xref py py-obj docutils literal"><span class="pre">Serial</span></tt></a> for description of <tt class="xref py py-obj docutils literal"><span class="pre">port</span></tt> and timeouts.</p>
+</div>
+</dd></dl>
 
 <dl class="classmethod">
 <dt id="instruments.Instrument.open_serial">
 <em class="property">classmethod </em><tt class="descname">open_serial</tt><big>(</big><em>port</em>, <em>baud</em>, <em>timeout=3</em>, <em>writeTimeout=3</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_serial" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Opens an instrument, connecting via a physical or emulated serial port.
+Note that many instruments which connect via USB are exposed to the
+operating system as serial ports, so this method will very commonly
+be used for connecting instruments via USB.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>port</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of the the port or device file to open a
+connection on. For example, <tt class="docutils literal"><span class="pre">&quot;COM10&quot;</span></tt> on Windows or
+<tt class="docutils literal"><span class="pre">&quot;/dev/ttyUSB0&quot;</span></tt> on Linux.</li>
+<li><strong>baud</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The baud rate at which instrument communicates.</li>
+<li><strong>timeout</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Number of seconds to wait when reading from the
+instrument before timing out.</li>
+<li><strong>writeTimeout</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Number of seconds to wait when writing to the
+instrument before timing out.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#instruments.Instrument" title="instruments.Instrument"><tt class="xref py py-obj docutils literal"><span class="pre">Instrument</span></tt></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Object representing the connected instrument.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://pyserial.sourceforge.net/pyserial_api.html#serial.Serial" title="(in pySerial v2.6)"><tt class="xref py py-obj docutils literal"><span class="pre">Serial</span></tt></a> for description of <tt class="xref py py-obj docutils literal"><span class="pre">port</span></tt>, baud rates and timeouts.</p>
+</div>
+</dd></dl>
 
 <dl class="classmethod">
 <dt id="instruments.Instrument.open_tcpip">
 <em class="property">classmethod </em><tt class="descname">open_tcpip</tt><big>(</big><em>host</em>, <em>port</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_tcpip" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Opens an instrument, connecting via TCP/IP to a given host and TCP port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>host</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name or IP address of the instrument.</li>
+<li><strong>port</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; TCP port on which the insturment is listening.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#instruments.Instrument" title="instruments.Instrument"><tt class="xref py py-obj docutils literal"><span class="pre">Instrument</span></tt></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Object representing the connected instrument.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.python.org/library/socket.html#socket.socket.connect" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">connect</span></tt></a> for description of <tt class="xref py py-obj docutils literal"><span class="pre">host</span></tt> and <tt class="xref py py-obj docutils literal"><span class="pre">port</span></tt>
+parameters in the TCP/IP address family.</p>
+</div>
+</dd></dl>
 
 <dl class="classmethod">
 <dt id="instruments.Instrument.open_test">
@@ -167,12 +259,63 @@ is assumed to be 115200.</p>
 <dl class="classmethod">
 <dt id="instruments.Instrument.open_usb">
 <em class="property">classmethod </em><tt class="descname">open_usb</tt><big>(</big><em>vid</em>, <em>pid</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_usb" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Opens an instrument, connecting via a raw USB stream.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note that raw USB a very uncommon of connecting to instruments,
+even for those that are connected by USB. Most will identify as
+either serial ports (in which case,
+<a class="reference internal" href="#instruments.Instrument.open_serial" title="instruments.Instrument.open_serial"><tt class="xref py py-obj docutils literal"><span class="pre">open_serial</span></tt></a> should be used), or as
+USB-TMC devices. On Linux, USB-TMC devices can be connected using
+<a class="reference internal" href="#instruments.Instrument.open_file" title="instruments.Instrument.open_file"><tt class="xref py py-obj docutils literal"><span class="pre">open_file</span></tt></a>, provided that the <tt class="docutils literal"><span class="pre">usbtmc</span></tt>
+kernel module is loaded. On Windows, some such devices can be opened
+using the VISA library and the <a class="reference internal" href="#instruments.Instrument.open_visa" title="instruments.Instrument.open_visa"><tt class="xref py py-obj docutils literal"><span class="pre">open_visa</span></tt></a>
+method.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>vid</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Vendor ID of the USB device to open.</li>
+<li><strong>pid</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Product ID of the USB device to open.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#instruments.Instrument" title="instruments.Instrument"><tt class="xref py py-obj docutils literal"><span class="pre">Instrument</span></tt></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Object representing the connected instrument.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="classmethod">
 <dt id="instruments.Instrument.open_visa">
 <em class="property">classmethod </em><tt class="descname">open_visa</tt><big>(</big><em>resource_name</em><big>)</big><a class="headerlink" href="#instruments.Instrument.open_visa" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Opens an instrument, connecting using the VISA library. Note that
+<a class="reference external" href="http://pyvisa.sourceforge.net/">PyVISA</a> and a VISA implementation must both be present and installed
+for this method to function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_name</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of a VISA resource representing the
+given instrument.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#instruments.Instrument" title="instruments.Instrument"><tt class="xref py py-obj docutils literal"><span class="pre">Instrument</span></tt></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Object representing the connected instrument.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://zone.ni.com/reference/en-XX/help/371361J-01/lvinstio/visa_resource_name_generic/">National Instruments help page on VISA resource names</a>.</p>
+</div>
+</dd></dl>
 
 <dl class="method">
 <dt id="instruments.Instrument.query">
@@ -482,7 +625,7 @@ if no voltage mode applies.</td>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
-                        title="previous chapter">GPIB USB Adapter API Reference</a></p>
+                        title="previous chapter">InstrumentKit API Reference</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="generic_scpi.html"
                         title="next chapter">Generic SCPI Instruments</a></p>
@@ -518,10 +661,10 @@ if no voltage mode applies.</td>
           <a href="generic_scpi.html" title="Generic SCPI Instruments"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="GPIB USB Adapter API Reference"
+          <a href="index.html" title="InstrumentKit API Reference"
              >previous</a> |</li>
         <li><a href="../index.html">InstrumentKit Library 1.0alpha1 documentation</a> &raquo;</li>
-          <li><a href="index.html" >GPIB USB Adapter API Reference</a> &raquo;</li> 
+          <li><a href="index.html" >InstrumentKit API Reference</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

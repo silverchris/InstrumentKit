@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="InstrumentKit Library 1.0alpha1 documentation" href="../index.html" />
-    <link rel="up" title="GPIB USB Adapter API Reference" href="index.html" />
+    <link rel="up" title="InstrumentKit API Reference" href="index.html" />
     <link rel="next" title="Stanford Research Systems Instruments" href="srs.html" />
     <link rel="prev" title="Lakeshore-brand Instruments" href="lakeshore.html" /> 
   </head>
@@ -45,7 +45,7 @@
           <a href="lakeshore.html" title="Lakeshore-brand Instruments"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">InstrumentKit Library 1.0alpha1 documentation</a> &raquo;</li>
-          <li><a href="index.html" accesskey="U">GPIB USB Adapter API Reference</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">InstrumentKit API Reference</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -91,7 +91,12 @@ Must be in <tt class="docutils literal"><span class="pre">xrange(1,</span> <span
 <dl class="method">
 <dt id="instruments.other.NewportESP301.execute_bulk_command">
 <tt class="descname">execute_bulk_command</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301.execute_bulk_command" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Context manager do execute multiple of commands in a single communication with device</p>
+<p>Example:</p>
+<div class="highlight-python"><pre>with self.execute_bulk_command():
+    execute commands as normal...</pre>
+</div>
+</dd></dl>
 
 <dl class="method">
 <dt id="instruments.other.NewportESP301.reset">
@@ -137,6 +142,14 @@ to move along a given axis:</p>
 Python idioms can be used more easily. This is not the same convention
 used in the Newport ESP-301 user&#8217;s manual, and so care must
 be taken when converting examples.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference internal" href="#instruments.other.NewportESP301Axis" title="instruments.other.NewportESP301Axis"><tt class="xref py py-class docutils literal"><span class="pre">NewportESP301Axis</span></tt></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -149,14 +162,30 @@ of an ESP-301 controller. This class should not be
 instantiated by the user directly, but is
 returned by <a class="reference internal" href="#instruments.other.NewportESP301.axis" title="instruments.other.NewportESP301.axis"><tt class="xref py py-obj docutils literal"><span class="pre">NewportESP301.axis</span></tt></a>.</p>
 <dl class="method">
+<dt id="instruments.other.NewportESP301Axis.get_pq_unit">
+<tt class="descname">get_pq_unit</tt><big>(</big><em>num</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis.get_pq_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the units for the specified axis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">The units for the attached axis</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-class docutils literal"><span class="pre">quantities.Quantity</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="instruments.other.NewportESP301Axis.move">
-<tt class="descname">move</tt><big>(</big><em>pos</em>, <em>absolute=True</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis.move" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">move</tt><big>(</big><em>position</em>, <em>absolute=True</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis.move" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pos</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> or <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) &#8211; Position to set move to along this axis.</li>
+<li><strong>position</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> or <tt class="xref py py-class docutils literal"><span class="pre">Quantity</span></tt>) &#8211; Position to set move to along this axis.</li>
 <li><strong>absolute</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; If <a class="reference external" href="http://docs.python.org/library/constants.html#True" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a>, the position <tt class="docutils literal"><span class="pre">pos</span></tt> is
 interpreted as relative to the zero-point of the encoder.
 If <a class="reference external" href="http://docs.python.org/library/constants.html#False" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">False</span></tt></a>, <tt class="docutils literal"><span class="pre">pos</span></tt> is interpreted
@@ -187,7 +216,8 @@ Home has been found.</td>
 <dl class="method">
 <dt id="instruments.other.NewportESP301Axis.stop_motion">
 <tt class="descname">stop_motion</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis.stop_motion" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Stop all motion on axis. With programmed deceleration rate</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="instruments.other.NewportESP301Axis.wait_for_motion">
@@ -214,47 +244,104 @@ indefinitely.</li>
 <dl class="method">
 <dt id="instruments.other.NewportESP301Axis.wait_for_position">
 <tt class="descname">wait_for_position</tt><big>(</big><em>position</em><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis.wait_for_position" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Wait for axis to reach position before executing next command</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>position</strong> (float or <tt class="xref py py-class docutils literal"><span class="pre">Quantity</span></tt>) &#8211; Position to wait for on axis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="instruments.other.NewportESP301Axis.wait_for_stop">
 <tt class="descname">wait_for_stop</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.other.NewportESP301Axis.wait_for_stop" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Waits for axis motion to stop before next command is executed</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.acceleration">
 <tt class="descname">acceleration</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.acceleration" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get acceleration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of current newport unit</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>accel</strong> (<tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a>) &#8211; Sets acceleration</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.axis_id">
 <tt class="descname">axis_id</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.axis_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get axis number of Newport Controller</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.deceleration">
 <tt class="descname">deceleration</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.deceleration" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets deceleration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of current newport <span class="math">\(\frac{unit}{s^2}\)</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>decel</strong> (<tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or float) &#8211; Sets deceleration</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.encoder_resolution">
 <tt class="descname">encoder_resolution</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.encoder_resolution" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.other.NewportESP301Axis.gear_constant">
-<tt class="descname">gear_constant</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.gear_constant" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="instruments.other.NewportESP301Axis.gear_ratio">
-<tt class="descname">gear_ratio</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.gear_ratio" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the resolution of the encode. The minimum number of units per step. 
+Encoder functionality must be enabled</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">The number of units per encoder step</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resolution</strong> (<tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a>) &#8211; Sets the encoder resolution of axis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.home">
 <tt class="descname">home</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.home" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get home position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of current newport unit</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>home</strong> (<tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a>) &#8211; Sets home position of axis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.is_motion_done">
@@ -263,52 +350,179 @@ indefinitely.</li>
 completed. This method can be used to wait for
 a motion command to complete before sending the next
 command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">bool</span></tt></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.left_limit">
 <tt class="descname">left_limit</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.left_limit" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the left travel limit</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">The limit in units</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>limit</strong> &#8211; Set the travel limit</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.max_acceleration">
 <tt class="descname">max_acceleration</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.max_acceleration" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get max acceleration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of current newport <span class="math">\(\frac{unit}{s^2}\)</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>accel</strong> (<tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a>) &#8211; Sets the maximum acceleration</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.max_deacceleration">
 <tt class="descname">max_deacceleration</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.max_deacceleration" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get max deceleration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of current newport <span class="math">\(\frac{unit}{s^2}\)</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>decel</strong> &#8211; Sets maximum deceleration</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.max_deceleration">
 <tt class="descname">max_deceleration</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.max_deceleration" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get max deceleration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of current newport <span class="math">\(\frac{unit}{s^2}\)</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>decel</strong> &#8211; Sets maximum deceleration</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.max_velocity">
 <tt class="descname">max_velocity</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.max_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum velocity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of current newport <span class="math">\(\frac{unit}{s}\)</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>velocity</strong> (<tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a>) &#8211; Sets the maximum velocity</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.other.NewportESP301Axis.micro_inch">
+<tt class="descname">micro_inch</tt><em class="property"> = UnitQuantity('micro-inch', 1e-06 * in, 'uin')</em><a class="headerlink" href="#instruments.other.NewportESP301Axis.micro_inch" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.position">
 <tt class="descname">position</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.position" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets real position on axis in units</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of current newport unit</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.right_limit">
 <tt class="descname">right_limit</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.right_limit" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the right travel limit</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">units</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>limit</strong> &#8211; Set the travel limit</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.units">
 <tt class="descname">units</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.units" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the units that all commands are in reference to.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>unit</strong> (<tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> with units corresponding to 
+units of axis connected) &#8211; Set the reference unit for axis</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.other.NewportESP301Axis.velocity">
 <tt class="descname">velocity</tt><a class="headerlink" href="#instruments.other.NewportESP301Axis.velocity" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets velocity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of current newport <span class="math">\(\frac{unit}{s}\)</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>velocity</strong> (<tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> or <a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a>) &#8211; Sets velocity</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -519,7 +733,7 @@ Phase Matrix FSW-0020.</p>
           <a href="lakeshore.html" title="Lakeshore-brand Instruments"
              >previous</a> |</li>
         <li><a href="../index.html">InstrumentKit Library 1.0alpha1 documentation</a> &raquo;</li>
-          <li><a href="index.html" >GPIB USB Adapter API Reference</a> &raquo;</li> 
+          <li><a href="index.html" >InstrumentKit API Reference</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
