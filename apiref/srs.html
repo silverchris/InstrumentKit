@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="InstrumentKit Library 1.0alpha1 documentation" href="../index.html" />
-    <link rel="up" title="GPIB USB Adapter API Reference" href="index.html" />
+    <link rel="up" title="InstrumentKit API Reference" href="index.html" />
     <link rel="next" title="Tektronix-brand Instruments" href="tektronix.html" />
     <link rel="prev" title="Other Instruments" href="other.html" /> 
   </head>
@@ -45,7 +45,7 @@
           <a href="other.html" title="Other Instruments"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">InstrumentKit Library 1.0alpha1 documentation</a> &raquo;</li>
-          <li><a href="index.html" accesskey="U">GPIB USB Adapter API Reference</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">InstrumentKit API Reference</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -170,7 +170,15 @@ otherwise.</td>
 <dl class="class">
 <dt id="instruments.srs.SRS830">
 <em class="property">class </em><tt class="descclassname">instruments.srs.</tt><tt class="descname">SRS830</tt><big>(</big><em>filelike</em>, <em>outx_mode=None</em><big>)</big><a class="headerlink" href="#instruments.srs.SRS830" title="Permalink to this definition">¶</a></dt>
-<dd><p>Communicates with a Stanford Research Systems 830 Lock-In Amplifier</p>
+<dd><p>Communicates with a Stanford Research Systems 830 Lock-In Amplifier.</p>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">instruments</span> <span class="kn">as</span> <span class="nn">ik</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">quantities</span> <span class="kn">as</span> <span class="nn">pq</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">srs</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">srs</span><span class="o">.</span><span class="n">SRS830</span><span class="o">.</span><span class="n">open_gpibusb</span><span class="p">(</span><span class="s">&#39;/dev/ttyUSB0&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">srs</span><span class="o">.</span><span class="n">frequency</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">pq</span><span class="o">.</span><span class="n">hertz</span> <span class="c"># Lock-In frequency</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">srs</span><span class="o">.</span><span class="n">take_measurement</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c"># 1Hz sample rate, 10 samples total</span>
+</pre></div>
+</div>
 <dl class="class">
 <dt id="instruments.srs.SRS830.BufferMode">
 <em class="property">class </em><tt class="descname">BufferMode</tt><a class="headerlink" href="#instruments.srs.SRS830.BufferMode" title="Permalink to this definition">¶</a></dt>
@@ -664,6 +672,13 @@ the string <tt class="xref py py-obj docutils literal"><span class="pre">trigger
 <em class="property">class </em><tt class="descclassname">instruments.srs.</tt><tt class="descname">SRSDG645</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.srs.SRSDG645" title="Permalink to this definition">¶</a></dt>
 <dd><p>Communicates with a Stanford Research Systems DG645 digital delay generator,
 using the SCPI commands documented in the <a class="reference external" href="http://www.thinksrs.com/downloads/PDFs/Manuals/DG645m.pdf">user&#8217;s guide</a>.</p>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">instruments</span> <span class="kn">as</span> <span class="nn">ik</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">quantities</span> <span class="kn">as</span> <span class="nn">pq</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">srs</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">srs</span><span class="o">.</span><span class="n">SRSDG645</span><span class="o">.</span><span class="n">open_gpibusb</span><span class="p">(</span><span class="s">&#39;/dev/ttyUSB0&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">srs</span><span class="o">.</span><span class="n">channel</span><span class="p">[</span><span class="n">srs</span><span class="o">.</span><span class="n">Channels</span><span class="o">.</span><span class="n">B</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">srs</span><span class="o">.</span><span class="n">Channels</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">pq</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s">&#39;ps&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
 <dl class="class">
 <dt id="instruments.srs.SRSDG645.Channels">
 <em class="property">class </em><tt class="descname">Channels</tt><a class="headerlink" href="#instruments.srs.SRSDG645.Channels" title="Permalink to this definition">¶</a></dt>
@@ -842,7 +857,22 @@ using the SCPI commands documented in the <a class="reference external" href="ht
 <dl class="attribute">
 <dt id="instruments.srs.SRSDG645.channel">
 <tt class="descclassname">SRSDG645.</tt><tt class="descname">channel</tt><a class="headerlink" href="#instruments.srs.SRSDG645.channel" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets a specific channel object.</p>
+<p>The desired channel is accessed by passing an EnumValue from 
+<a class="reference internal" href="#instruments.srs.SRSDG645.Channels" title="instruments.srs.SRSDG645.Channels"><tt class="xref py py-obj docutils literal"><span class="pre">Channels</span></tt></a>. For example, to access channel A:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">inst</span><span class="o">.</span><span class="n">channel</span><span class="p">[</span><span class="n">inst</span><span class="o">.</span><span class="n">Channels</span><span class="o">.</span><span class="n">A</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>See the example in <a class="reference internal" href="#instruments.srs.SRSDG645" title="instruments.srs.SRSDG645"><tt class="xref py py-obj docutils literal"><span class="pre">SRSDG645</span></tt></a> for a more complete example.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#instruments.srs._SRSDG645Channel" title="instruments.srs._SRSDG645Channel"><tt class="xref py py-obj docutils literal"><span class="pre">_SRSDG645Channel</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.srs.SRSDG645.display">
@@ -921,6 +951,26 @@ The mode is a tuple of the display mode and the channel.</p>
 
 </dd></dl>
 
+<dl class="class">
+<dt id="instruments.srs._SRSDG645Channel">
+<em class="property">class </em><tt class="descclassname">instruments.srs.</tt><tt class="descname">_SRSDG645Channel</tt><big>(</big><em>ddg</em>, <em>chan</em><big>)</big><a class="headerlink" href="#instruments.srs._SRSDG645Channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing a sensor attached to the SRS DG645.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This class should NOT be manually created by the user. It is 
+designed to be initialized by the <a class="reference internal" href="#instruments.srs.SRSDG645" title="instruments.srs.SRSDG645"><tt class="xref py py-obj docutils literal"><span class="pre">SRSDG645</span></tt></a> class.</p>
+</div>
+<dl class="attribute">
+<dt id="instruments.srs._SRSDG645Channel.delay">
+<tt class="descname">delay</tt><a class="headerlink" href="#instruments.srs._SRSDG645Channel.delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the delay of this channel.
+Formatted as a two-tuple of the reference and the delay time.
+For example, <tt class="docutils literal"><span class="pre">(SRSDG645.Channels.A,</span> <span class="pre">pq.Quantity(10,</span> <span class="pre">&quot;ps&quot;))</span></tt>
+indicates a delay of 10 picoseconds from delay channel A.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
@@ -984,7 +1034,7 @@ The mode is a tuple of the display mode and the channel.</p>
           <a href="other.html" title="Other Instruments"
              >previous</a> |</li>
         <li><a href="../index.html">InstrumentKit Library 1.0alpha1 documentation</a> &raquo;</li>
-          <li><a href="index.html" >GPIB USB Adapter API Reference</a> &raquo;</li> 
+          <li><a href="index.html" >InstrumentKit API Reference</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
