@@ -181,29 +181,120 @@ designed to be initialized by the <a class="reference internal" href="#instrumen
 <dl class="class">
 <dt id="instruments.lakeshore.Lakeshore475">
 <em class="property">class </em><tt class="descclassname">instruments.lakeshore.</tt><tt class="descname">Lakeshore475</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.lakeshore.Lakeshore475" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><p>The Lakeshore475 is a DSP Gaussmeter with field ranges from 35mG to 350kG.</p>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">instruments</span> <span class="kn">as</span> <span class="nn">ik</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">quantities</span> <span class="kn">as</span> <span class="nn">pq</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gm</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">lakeshore</span><span class="o">.</span><span class="n">Lakeshore475</span><span class="o">.</span><span class="n">open_gpibusb</span><span class="p">(</span><span class="s">&#39;/dev/ttyUSB0&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">gm</span><span class="o">.</span><span class="n">field</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gm</span><span class="o">.</span><span class="n">field_units</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">tesla</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gm</span><span class="o">.</span><span class="n">field_setpoint</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="n">pq</span><span class="o">.</span><span class="n">tesla</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="instruments.lakeshore.Lakeshore475.Filter">
+<em class="property">class </em><tt class="descname">Filter</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.Filter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.Filter.lowpass">
+<tt class="descname">lowpass</tt><em class="property"> = &lt;EnumValue: Filter.lowpass [value=3]&gt;</em><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.Filter.lowpass" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.Filter.narrow">
+<tt class="descname">narrow</tt><em class="property"> = &lt;EnumValue: Filter.narrow [value=2]&gt;</em><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.Filter.narrow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.Filter.wide">
+<tt class="descname">wide</tt><em class="property"> = &lt;EnumValue: Filter.wide [value=1]&gt;</em><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.Filter.wide" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instruments.lakeshore.Lakeshore475.Mode">
+<em class="property">class </em><tt class="descclassname">Lakeshore475.</tt><tt class="descname">Mode</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.Mode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.Mode.dc">
+<tt class="descname">dc</tt><em class="property"> = &lt;EnumValue: Mode.dc [value=1]&gt;</em><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.Mode.dc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.Mode.peak">
+<tt class="descname">peak</tt><em class="property"> = &lt;EnumValue: Mode.peak [value=3]&gt;</em><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.Mode.peak" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.Mode.rms">
+<tt class="descname">rms</tt><em class="property"> = &lt;EnumValue: Mode.rms [value=2]&gt;</em><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.Mode.rms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instruments.lakeshore.Lakeshore475.PeakDisplay">
+<em class="property">class </em><tt class="descclassname">Lakeshore475.</tt><tt class="descname">PeakDisplay</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.PeakDisplay" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.PeakDisplay.both">
+<tt class="descname">both</tt><em class="property"> = &lt;EnumValue: PeakDisplay.both [value=3]&gt;</em><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.PeakDisplay.both" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.PeakDisplay.negative">
+<tt class="descname">negative</tt><em class="property"> = &lt;EnumValue: PeakDisplay.negative [value=2]&gt;</em><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.PeakDisplay.negative" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.PeakDisplay.positive">
+<tt class="descname">positive</tt><em class="property"> = &lt;EnumValue: PeakDisplay.positive [value=1]&gt;</em><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.PeakDisplay.positive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instruments.lakeshore.Lakeshore475.PeakMode">
+<em class="property">class </em><tt class="descclassname">Lakeshore475.</tt><tt class="descname">PeakMode</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.PeakMode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.PeakMode.periodic">
+<tt class="descname">periodic</tt><em class="property"> = &lt;EnumValue: PeakMode.periodic [value=1]&gt;</em><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.PeakMode.periodic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.lakeshore.Lakeshore475.PeakMode.pulse">
+<tt class="descname">pulse</tt><em class="property"> = &lt;EnumValue: PeakMode.pulse [value=2]&gt;</em><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.PeakMode.pulse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
 <dt id="instruments.lakeshore.Lakeshore475.change_measurement_mode">
-<tt class="descname">change_measurement_mode</tt><big>(</big><em>mode</em>, <em>resolution</em>, <em>filterType</em>, <em>peakMode</em>, <em>peakDisp</em><big>)</big><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.change_measurement_mode" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Lakeshore475.</tt><tt class="descname">change_measurement_mode</tt><big>(</big><em>mode</em>, <em>resolution</em>, <em>filter_type</em>, <em>peak_mode</em>, <em>peak_disp</em><big>)</big><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.change_measurement_mode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Change the measurement mode of the Gaussmeter.</p>
-<p>mode: The desired measurement mode type
-mode = {DC|RMS|PEAK},string</p>
-<p>resolution: Digit resolution of the measured field.
-resolution = {3|4|5},integer</p>
-<dl class="docutils">
-<dt>filterType: Specify the signal filter used by the instrument. </dt>
-<dd>Available types include wide band, narrow band,
-and low pass.</dd>
-</dl>
-<p>filterType = {WIDE|NARROW|LOW PASS},string</p>
-<p>peakMode: Peak measurement mode to be used.
-peakMode = {PERIODIC|PULSE},string</p>
-<p>peakDisp: Peak display mode to be used.
-peakDisp = {POSITIVE|NEGATIVE|BOTH},string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mode</strong> (<a class="reference internal" href="#instruments.lakeshore.Lakeshore475.Mode" title="instruments.lakeshore.Lakeshore475.Mode"><tt class="xref py py-obj docutils literal"><span class="pre">Lakeshore475.Mode</span></tt></a>) &#8211; The desired measurement mode.</li>
+<li><strong>resolution</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Digit resolution of the measured field. One of
+<tt class="xref py py-obj docutils literal"><span class="pre">{3|4|5}</span></tt>.</li>
+<li><strong>filter_type</strong> (<a class="reference internal" href="#instruments.lakeshore.Lakeshore475.Filter" title="instruments.lakeshore.Lakeshore475.Filter"><tt class="xref py py-obj docutils literal"><span class="pre">Lakeshore475.Filter</span></tt></a>) &#8211; Specify the signal filter 
+used by the instrument. Available types include wide band, narrow 
+band, and low pass.</li>
+<li><strong>peak_mode</strong> (<a class="reference internal" href="#instruments.lakeshore.Lakeshore475.PeakMode" title="instruments.lakeshore.Lakeshore475.PeakMode"><tt class="xref py py-obj docutils literal"><span class="pre">Lakeshore475.PeakMode</span></tt></a>) &#8211; Peak measurement mode to be 
+used.</li>
+<li><strong>peak_disp</strong> (<a class="reference internal" href="#instruments.lakeshore.Lakeshore475.PeakDisplay" title="instruments.lakeshore.Lakeshore475.PeakDisplay"><tt class="xref py py-obj docutils literal"><span class="pre">Lakeshore475.PeakDisplay</span></tt></a>) &#8211; Peak display mode to be 
+used.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.lakeshore.Lakeshore475.control_mode">
-<tt class="descname">control_mode</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.control_mode" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Lakeshore475.</tt><tt class="descname">control_mode</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.control_mode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets/sets the control mode setting. False corresponds to the field
 control ramp being disables, while True enables the closed loop PI
 field control.</p>
@@ -219,7 +310,7 @@ field control.</p>
 
 <dl class="attribute">
 <dt id="instruments.lakeshore.Lakeshore475.control_slope_limit">
-<tt class="descname">control_slope_limit</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.control_slope_limit" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Lakeshore475.</tt><tt class="descname">control_slope_limit</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.control_slope_limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets/sets the I value for the field control ramp.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -236,7 +327,7 @@ of units volt / minute.</td>
 
 <dl class="attribute">
 <dt id="instruments.lakeshore.Lakeshore475.field">
-<tt class="descname">field</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.field" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Lakeshore475.</tt><tt class="descname">field</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.field" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read field from connected probe.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -250,7 +341,7 @@ of units volt / minute.</td>
 
 <dl class="attribute">
 <dt id="instruments.lakeshore.Lakeshore475.field_control_params">
-<tt class="descname">field_control_params</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.field_control_params" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Lakeshore475.</tt><tt class="descname">field_control_params</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.field_control_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets/sets the parameters associated with the field control ramp.
 These are the P, I, ramp rate, and control slope limit.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -265,7 +356,7 @@ These are the P, I, ramp rate, and control slope limit.</p>
 
 <dl class="attribute">
 <dt id="instruments.lakeshore.Lakeshore475.field_setpoint">
-<tt class="descname">field_setpoint</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.field_setpoint" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Lakeshore475.</tt><tt class="descname">field_setpoint</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.field_setpoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets/sets the final setpoint of the field control ramp.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -282,15 +373,13 @@ of units Gauss.</td>
 
 <dl class="attribute">
 <dt id="instruments.lakeshore.Lakeshore475.field_units">
-<tt class="descname">field_units</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.field_units" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets or sets the units of the Gaussmeter.
-If specified as a <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>, must be one of <tt class="docutils literal"><span class="pre">{Gauss|Tesla|Oersted|A/m}</span></tt>.
-If specified as an <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>, must be in <tt class="docutils literal"><span class="pre">xrange(1,</span> <span class="pre">5)</span></tt>.</p>
+<tt class="descclassname">Lakeshore475.</tt><tt class="descname">field_units</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.field_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the units of the Gaussmeter.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">UnitQuantity</span></tt>, <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></td>
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">UnitQuantity</span></tt></td>
 </tr>
 </tbody>
 </table>
@@ -298,7 +387,7 @@ If specified as an <a class="reference external" href="http://docs.python.org/li
 
 <dl class="attribute">
 <dt id="instruments.lakeshore.Lakeshore475.i_value">
-<tt class="descname">i_value</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.i_value" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Lakeshore475.</tt><tt class="descname">i_value</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.i_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets/sets the I value for the field control ramp.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -312,7 +401,7 @@ If specified as an <a class="reference external" href="http://docs.python.org/li
 
 <dl class="attribute">
 <dt id="instruments.lakeshore.Lakeshore475.p_value">
-<tt class="descname">p_value</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.p_value" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Lakeshore475.</tt><tt class="descname">p_value</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.p_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets/sets the P value for the field control ramp.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -326,7 +415,7 @@ If specified as an <a class="reference external" href="http://docs.python.org/li
 
 <dl class="attribute">
 <dt id="instruments.lakeshore.Lakeshore475.ramp_rate">
-<tt class="descname">ramp_rate</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.ramp_rate" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Lakeshore475.</tt><tt class="descname">ramp_rate</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.ramp_rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets/sets the ramp rate value for the field control ramp.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -343,16 +432,13 @@ of current field units / minute.</td>
 
 <dl class="attribute">
 <dt id="instruments.lakeshore.Lakeshore475.temp_units">
-<tt class="descname">temp_units</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.temp_units" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets or sets the temperature units of the Gaussmeter.
-If specified as a <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>, must be one of <tt class="docutils literal"><span class="pre">&quot;Celsius&quot;</span></tt>
-or <tt class="docutils literal"><span class="pre">&quot;Kelvin&quot;</span></tt>. If specified as an <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>, must be
-in <tt class="docutils literal"><span class="pre">xrange(1,3)</span></tt>.</p>
+<tt class="descclassname">Lakeshore475.</tt><tt class="descname">temp_units</tt><a class="headerlink" href="#instruments.lakeshore.Lakeshore475.temp_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the temperature units of the Gaussmeter.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">UnitQuantity</span></tt>, <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></td>
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">UnitQuantity</span></tt></td>
 </tr>
 </tbody>
 </table>
