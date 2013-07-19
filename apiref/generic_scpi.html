@@ -61,7 +61,18 @@
 <dl class="class">
 <dt id="instruments.generic_scpi.SCPIInstrument">
 <em class="property">class </em><tt class="descclassname">instruments.generic_scpi.</tt><tt class="descname">SCPIInstrument</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><p>Base class for all SCPI-compliant instruments. Inherits from
+from <a class="reference internal" href="instrument.html#instruments.Instrument" title="instruments.Instrument"><tt class="xref py py-obj docutils literal"><span class="pre">Instrument</span></tt></a>.</p>
+<p>This class does not implement any instrument-specific communication 
+commands. What it does add is several of the generic SCPI star commands.
+This includes commands such as *IDN?, *OPC?, and *RST.</p>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">instruments</span> <span class="kn">as</span> <span class="nn">ik</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inst</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">generic_scpi</span><span class="o">.</span><span class="n">SCPIInstrument</span><span class="o">.</span><span class="n">open_tcpip</span><span class="p">(</span><span class="s">&#39;192.168.0.2&#39;</span><span class="p">,</span> <span class="mi">8888</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">inst</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<dl class="method">
 <dt id="instruments.generic_scpi.SCPIInstrument.clear">
 <tt class="descname">clear</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIInstrument.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear instrument. Consult manual for specifics related to that 
@@ -101,7 +112,7 @@ standard SCPI command <tt class="docutils literal"><span class="pre">*IDN?</span
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></td>
 </tr>
 </tbody>
 </table>

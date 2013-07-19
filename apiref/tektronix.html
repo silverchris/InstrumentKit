@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="InstrumentKit Library 1.0alpha1 documentation" href="../index.html" />
-    <link rel="up" title="GPIB USB Adapter API Reference" href="index.html" />
+    <link rel="up" title="InstrumentKit API Reference" href="index.html" />
     <link rel="next" title="Configuration File Support" href="config.html" />
     <link rel="prev" title="Stanford Research Systems Instruments" href="srs.html" /> 
   </head>
@@ -45,7 +45,7 @@
           <a href="srs.html" title="Stanford Research Systems Instruments"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">InstrumentKit Library 1.0alpha1 documentation</a> &raquo;</li>
-          <li><a href="index.html" accesskey="U">GPIB USB Adapter API Reference</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">InstrumentKit API Reference</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -160,8 +160,15 @@ waveform data that is uploaded.</p>
 <dl class="class">
 <dt id="instruments.tektronix.TekDPO4104">
 <em class="property">class </em><tt class="descclassname">instruments.tektronix.</tt><tt class="descname">TekDPO4104</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.tektronix.TekDPO4104" title="Permalink to this definition">¶</a></dt>
-<dd><p>Communicates with a Tektronix DPO4104 oscilloscope using the SCPI commands
-documented in the user&#8217;s guide.</p>
+<dd><p>The Tektronix DPO4104 is a multi-channel oscilloscope with analog 
+bandwidths ranging from 100MHz to 1GHz.</p>
+<p>This class inherits from <a class="reference internal" href="generic_scpi.html#instruments.generic_scpi.SCPIInstrument" title="instruments.generic_scpi.SCPIInstrument"><tt class="xref py py-obj docutils literal"><span class="pre">SCPIInstrument</span></tt></a>.</p>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">instruments</span> <span class="kn">as</span> <span class="nn">ik</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tek</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">tektronix</span><span class="o">.</span><span class="n">TekDPO4104</span><span class="o">.</span><span class="n">open_tcpip</span><span class="p">(</span><span class="s">&#39;192.168.0.2&#39;</span><span class="p">,</span> <span class="mi">8888</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">tek</span><span class="o">.</span><span class="n">channel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">read_waveform</span><span class="p">()</span>
+</pre></div>
+</div>
 <dl class="class">
 <dt id="instruments.tektronix.TekDPO4104.Coupling">
 <em class="property">class </em><tt class="descname">Coupling</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.Coupling" title="Permalink to this definition">¶</a></dt>
@@ -186,7 +193,7 @@ documented in the user&#8217;s guide.</p>
 <dt id="instruments.tektronix.TekDPO4104.force_trigger">
 <tt class="descclassname">TekDPO4104.</tt><tt class="descname">force_trigger</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.tektronix.TekDPO4104.force_trigger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Forces a trigger event to occur on the attached oscilloscope.
-Note that this is distinct from the standard SCPI &#8220;<a href="#id1"><span class="problematic" id="id2">*</span></a>TRG&#8221; functionality.</p>
+Note that this is distinct from the standard SCPI &#8220;*TRG&#8221; functionality.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -228,12 +235,28 @@ and is <a class="reference external" href="http://docs.python.org/library/consta
 <dl class="attribute">
 <dt id="instruments.tektronix.TekDPO4104.channel">
 <tt class="descclassname">TekDPO4104.</tt><tt class="descname">channel</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.channel" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets a specific oscilloscope channel object. The desired channel is 
+specified like one would access a list.</p>
+<p>For instance, this would transfer the waveform from the first channel:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tek</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">tektronix</span><span class="o">.</span><span class="n">TekDPO4104</span><span class="o">.</span><span class="n">open_tcpip</span><span class="p">(</span><span class="s">&#39;192.168.0.2&#39;</span><span class="p">,</span> <span class="mi">8888</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">tek</span><span class="o">.</span><span class="n">channel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">read_waveform</span><span class="p">()</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">_TekDPO4104Channel</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.tektronix.TekDPO4104.data_source">
 <tt class="descclassname">TekDPO4104.</tt><tt class="descname">data_source</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.data_source" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets/sets the the data source for waveform transfer.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.tektronix.TekDPO4104.data_width">
@@ -243,12 +266,36 @@ and is <a class="reference external" href="http://docs.python.org/library/consta
 <dl class="attribute">
 <dt id="instruments.tektronix.TekDPO4104.math">
 <tt class="descclassname">TekDPO4104.</tt><tt class="descname">math</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.math" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets a data source object corresponding to the MATH channel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">_TekDPO4104DataSource</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.tektronix.TekDPO4104.ref">
 <tt class="descclassname">TekDPO4104.</tt><tt class="descname">ref</tt><a class="headerlink" href="#instruments.tektronix.TekDPO4104.ref" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets a specific oscilloscope reference channel object. The desired 
+channel is specified like one would access a list.</p>
+<p>For instance, this would transfer the waveform from the first channel:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tek</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">tektronix</span><span class="o">.</span><span class="n">TekDPO4104</span><span class="o">.</span><span class="n">open_tcpip</span><span class="p">(</span><span class="s">&#39;192.168.0.2&#39;</span><span class="p">,</span> <span class="mi">8888</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">tek</span><span class="o">.</span><span class="n">ref</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">read_waveform</span><span class="p">()</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">_TekDPO4104DataSource</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.tektronix.TekDPO4104.y_offset">
@@ -371,7 +418,7 @@ One of <tt class="docutils literal"><span class="pre">{CH1|CH2|CH3|CH4|REFA|REFB
           <a href="srs.html" title="Stanford Research Systems Instruments"
              >previous</a> |</li>
         <li><a href="../index.html">InstrumentKit Library 1.0alpha1 documentation</a> &raquo;</li>
-          <li><a href="index.html" >GPIB USB Adapter API Reference</a> &raquo;</li> 
+          <li><a href="index.html" >InstrumentKit API Reference</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
