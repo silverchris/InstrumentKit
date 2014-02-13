@@ -48,10 +48,16 @@
           <div class="body">
             
   <h1>Source code for instruments.srs</h1><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">instruments.srs.srs345</span> <span class="kn">import</span> <span class="n">SRS345</span>
+<span class="kn">from</span> <span class="nn">instruments.srs.srs345</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SRS345</span><span class="p">,</span> <span class="n">SRS345Function</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">instruments.srs.srs830</span> <span class="kn">import</span> <span class="n">SRS830</span>
 <span class="kn">from</span> <span class="nn">instruments.srs.srsdg645</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">SRSDG645</span><span class="p">,</span> <span class="n">SRSDG645DisplayMode</span><span class="p">,</span> <span class="n">SRSDG645Channels</span><span class="p">,</span> <span class="n">SRSDG645TriggerSource</span>
+    <span class="n">SRSDG645</span><span class="p">,</span>
+    <span class="n">_SRSDG645Channel</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">instruments.srs.srsctc100</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SRSCTC100</span>
 <span class="p">)</span>
 </pre></div>
 

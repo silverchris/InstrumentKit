@@ -169,9 +169,74 @@ if the self test was sucessful or not.</p>
 <dl class="class">
 <dt id="instruments.generic_scpi.SCPIMultimeter">
 <em class="property">class </em><tt class="descclassname">instruments.generic_scpi.</tt><tt class="descname">SCPIMultimeter</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><dl class="class">
+<dt id="instruments.generic_scpi.SCPIMultimeter.Mode">
+<em class="property">class </em><tt class="descname">Mode</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.Mode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIMultimeter.Mode.capacitance">
+<tt class="descname">capacitance</tt><em class="property"> = &lt;EnumValue: Mode.capacitance [value=CAP]&gt;</em><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.Mode.capacitance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIMultimeter.Mode.continuity">
+<tt class="descname">continuity</tt><em class="property"> = &lt;EnumValue: Mode.continuity [value=CONT]&gt;</em><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.Mode.continuity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIMultimeter.Mode.current_ac">
+<tt class="descname">current_ac</tt><em class="property"> = &lt;EnumValue: Mode.current_ac [value=CURR:AC]&gt;</em><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.Mode.current_ac" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIMultimeter.Mode.current_dc">
+<tt class="descname">current_dc</tt><em class="property"> = &lt;EnumValue: Mode.current_dc [value=CURR:DC]&gt;</em><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.Mode.current_dc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIMultimeter.Mode.diode">
+<tt class="descname">diode</tt><em class="property"> = &lt;EnumValue: Mode.diode [value=DIOD]&gt;</em><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.Mode.diode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIMultimeter.Mode.fourpt_resistance">
+<tt class="descname">fourpt_resistance</tt><em class="property"> = &lt;EnumValue: Mode.fourpt_resistance [value=FRES]&gt;</em><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.Mode.fourpt_resistance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIMultimeter.Mode.frequency">
+<tt class="descname">frequency</tt><em class="property"> = &lt;EnumValue: Mode.frequency [value=FREQ]&gt;</em><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.Mode.frequency" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIMultimeter.Mode.period">
+<tt class="descname">period</tt><em class="property"> = &lt;EnumValue: Mode.period [value=PER]&gt;</em><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.Mode.period" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIMultimeter.Mode.resistance">
+<tt class="descname">resistance</tt><em class="property"> = &lt;EnumValue: Mode.resistance [value=RES]&gt;</em><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.Mode.resistance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIMultimeter.Mode.temperature">
+<tt class="descname">temperature</tt><em class="property"> = &lt;EnumValue: Mode.temperature [value=TEMP]&gt;</em><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.Mode.temperature" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIMultimeter.Mode.voltage_ac">
+<tt class="descname">voltage_ac</tt><em class="property"> = &lt;EnumValue: Mode.voltage_ac [value=VOLT:AC]&gt;</em><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.Mode.voltage_ac" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.generic_scpi.SCPIMultimeter.Mode.voltage_dc">
+<tt class="descname">voltage_dc</tt><em class="property"> = &lt;EnumValue: Mode.voltage_dc [value=VOLT:DC]&gt;</em><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.Mode.voltage_dc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
 <dt id="instruments.generic_scpi.SCPIMultimeter.measure">
-<tt class="descname">measure</tt><big>(</big><em>mode=None</em><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.measure" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">SCPIMultimeter.</tt><tt class="descname">measure</tt><big>(</big><em>mode=None</em><big>)</big><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.measure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instruct the multimeter to perform a one time measurement. The 
 instrument will use default parameters for the requested measurement.
 The measurement will immediately take place, and the results are 
@@ -183,9 +248,8 @@ instrument value and appropriate units. If no appropriate units exist,
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>instruments.generic_scpi.MultimeterMode</em>) &#8211; Desired 
-measurement mode. If set to <a class="reference external" href="http://docs.python.org/library/constants.html#None" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a>, will default to the current 
-mode.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<a class="reference internal" href="#instruments.generic_scpi.SCPIMultimeter.Mode" title="instruments.generic_scpi.SCPIMultimeter.Mode"><tt class="xref py py-obj docutils literal"><span class="pre">Mode</span></tt></a>) &#8211; Desired measurement mode. If set to <a class="reference external" href="http://docs.python.org/library/constants.html#None" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a>, will default 
+to the current mode.</td>
 </tr>
 </tbody>
 </table>
@@ -193,13 +257,13 @@ mode.</td>
 
 <dl class="attribute">
 <dt id="instruments.generic_scpi.SCPIMultimeter.mode">
-<tt class="descname">mode</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.mode" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">SCPIMultimeter.</tt><tt class="descname">mode</tt><a class="headerlink" href="#instruments.generic_scpi.SCPIMultimeter.mode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets/sets the current measurement mode for the multimeter.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">instruments.generic_scpi.MultimeterMode</span></tt></td>
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference internal" href="#instruments.generic_scpi.SCPIMultimeter.Mode" title="instruments.generic_scpi.SCPIMultimeter.Mode"><tt class="xref py py-obj docutils literal"><span class="pre">Mode</span></tt></a></td>
 </tr>
 </tbody>
 </table>

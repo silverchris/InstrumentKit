@@ -64,13 +64,19 @@
 <dd><p>The HP6624a is a multi-output power supply.</p>
 <p>This class can also be used for HP662xa, where x=1,2,3,4,7. Note that some 
 models have less channels then the HP6624 and it is up to the user to take 
-this into account.</p>
+this into account. This can be changed with the <a class="reference internal" href="#instruments.hp.HP6624a.channel_count" title="instruments.hp.HP6624a.channel_count"><tt class="xref py py-obj docutils literal"><span class="pre">channel_count</span></tt></a>
+property.</p>
 <p>Example usage:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">instruments</span> <span class="kn">as</span> <span class="nn">ik</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">psu</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">hp</span><span class="o">.</span><span class="n">HP6624a</span><span class="o">.</span><span class="n">open_gpibusb</span><span class="p">(</span><span class="s">&#39;/dev/ttyUSB0&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">psu</span><span class="o">.</span><span class="n">channel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">voltage</span> <span class="o">=</span> <span class="mi">10</span> <span class="c"># Sets channel 1 voltage to 10V.</span>
 </pre></div>
 </div>
+<dl class="method">
+<dt id="instruments.hp.HP6624a.Mode">
+<tt class="descname">Mode</tt><big>(</big><em>Enum</em><big>)</big><a class="headerlink" href="#instruments.hp.HP6624a.Mode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="instruments.hp.HP6624a.clear">
 <tt class="descname">clear</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.hp.HP6624a.clear" title="Permalink to this definition">¶</a></dt>
@@ -103,6 +109,87 @@ one would access a list.</p>
 </div>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="instruments.hp.HP6624a.channel_count">
+<tt class="descname">channel_count</tt><a class="headerlink" href="#instruments.hp.HP6624a.channel_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the number of output channels available for the connected
+power supply.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.hp.HP6624a.current">
+<tt class="descname">current</tt><a class="headerlink" href="#instruments.hp.HP6624a.current" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the current for all four channels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of units Amps.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">list</span></tt></a> of <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> with units Amp</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.hp.HP6624a.current_sense">
+<tt class="descname">current_sense</tt><a class="headerlink" href="#instruments.hp.HP6624a.current_sense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the actual current as measured by the instrument for all channels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body"><span class="math">\(\text{A}\)</span> (amps)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">tuple</span></tt></a> of <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.hp.HP6624a.voltage">
+<tt class="descname">voltage</tt><a class="headerlink" href="#instruments.hp.HP6624a.voltage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the voltage for all four channels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified (if a <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt>) or assumed to be
+of units Volts.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">list</span></tt></a> of <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt> with units Volt</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.hp.HP6624a.voltage_sense">
+<tt class="descname">voltage_sense</tt><a class="headerlink" href="#instruments.hp.HP6624a.voltage_sense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the actual voltage as measured by the sense wires for all channels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body"><span class="math">\(\text{V}\)</span> (volts)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#tuple" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">tuple</span></tt></a> of <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -123,7 +210,8 @@ designed to be initialized by the <a class="reference internal" href="#instrumen
 <dl class="attribute">
 <dt id="instruments.hp._HP6624aChannel.current">
 <tt class="descname">current</tt><a class="headerlink" href="#instruments.hp._HP6624aChannel.current" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets/sets the current of the specified channel.</p>
+<dd><p>Gets/sets the current of the specified channel. If the device is in 
+constant voltage mode, this sets the current limit.</p>
 <p>Note there is no bounds checking on the value specified.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -135,6 +223,29 @@ designed to be initialized by the <a class="reference internal" href="#instrumen
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.hp._HP6624aChannel.current_sense">
+<tt class="descname">current_sense</tt><a class="headerlink" href="#instruments.hp._HP6624aChannel.current_sense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the actual output current as measured by the instrument for
+the specified channel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body"><span class="math">\(\text{A}\)</span> (amps)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.hp._HP6624aChannel.mode">
+<tt class="descname">mode</tt><a class="headerlink" href="#instruments.hp._HP6624aChannel.mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the mode for the specified channel.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -188,7 +299,8 @@ while False will turn it off.</p>
 <dl class="attribute">
 <dt id="instruments.hp._HP6624aChannel.voltage">
 <tt class="descname">voltage</tt><a class="headerlink" href="#instruments.hp._HP6624aChannel.voltage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets/sets the voltage of the specified channel.</p>
+<dd><p>Gets/sets the voltage of the specified channel. If the device is in
+constant current mode, this sets the voltage limit.</p>
 <p>Note there is no bounds checking on the value specified.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -197,6 +309,23 @@ while False will turn it off.</p>
 <tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body">As specified, or assumed to be <span class="math">\(\text{V}\)</span> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> or <tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.hp._HP6624aChannel.voltage_sense">
+<tt class="descname">voltage_sense</tt><a class="headerlink" href="#instruments.hp._HP6624aChannel.voltage_sense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the actual voltage as measured by the sense wires for the 
+specified channel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Units :</th><td class="field-body"><span class="math">\(\text{V}\)</span> (volts)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></td>
 </tr>
 </tbody>
 </table>

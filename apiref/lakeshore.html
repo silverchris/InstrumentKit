@@ -139,7 +139,8 @@ temperature dilution refridgerator setups.</p>
 <dd><p>Gets a specific channel object. The desired channel is specified like 
 one would access a list.</p>
 <p>For instance, this would query the resistance of the first channel:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bridge</span> <span class="o">=</span> <span class="n">Lakeshore370</span><span class="o">.</span><span class="n">open_serial</span><span class="p">(</span><span class="s">&quot;COM5&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">instruments</span> <span class="kn">as</span> <span class="nn">ik</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bridge</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">lakeshore</span><span class="o">.</span><span class="n">Lakeshore370</span><span class="o">.</span><span class="n">open_serial</span><span class="p">(</span><span class="s">&quot;COM5&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">bridge</span><span class="o">.</span><span class="n">channel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">resistance</span>
 </pre></div>
 </div>

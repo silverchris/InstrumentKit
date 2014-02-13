@@ -120,7 +120,7 @@ commands documented in the user&#8217;s guide.</p>
 <li><strong>yzero</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>) &#8211; Y-axis origin offset</li>
 <li><strong>ymult</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>) &#8211; Y-axis data point multiplier</li>
 <li><strong>xincr</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>) &#8211; X-axis data point increment</li>
-<li><strong>waveform</strong> (<a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.7)"><em>numpy.ndarray</em></a>) &#8211; Numpy array of values representing the 
+<li><strong>waveform</strong> (<a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.8)"><em>numpy.ndarray</em></a>) &#8211; Numpy array of values representing the 
 waveform to be uploaded. This array should be normalized. This means
 that all absolute values contained within the array should not 
 exceed 1.</li>
@@ -246,7 +246,7 @@ specified like one would access a list.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">_TekDPO4104Channel</span></tt></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#instruments.tektronix._TekDPO4104Channel" title="instruments.tektronix._TekDPO4104Channel"><tt class="xref py py-obj docutils literal"><span class="pre">_TekDPO4104Channel</span></tt></a></td>
 </tr>
 </tbody>
 </table>
@@ -271,7 +271,7 @@ specified like one would access a list.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">_TekDPO4104DataSource</span></tt></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#instruments.tektronix._TekDPO4104DataSource" title="instruments.tektronix._TekDPO4104DataSource"><tt class="xref py py-obj docutils literal"><span class="pre">_TekDPO4104DataSource</span></tt></a></td>
 </tr>
 </tbody>
 </table>
@@ -291,7 +291,7 @@ channel is specified like one would access a list.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">_TekDPO4104DataSource</span></tt></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#instruments.tektronix._TekDPO4104DataSource" title="instruments.tektronix._TekDPO4104DataSource"><tt class="xref py py-obj docutils literal"><span class="pre">_TekDPO4104DataSource</span></tt></a></td>
 </tr>
 </tbody>
 </table>
@@ -305,52 +305,173 @@ channel is specified like one would access a list.</p>
 
 </dd></dl>
 
+<dl class="class">
+<dt id="instruments.tektronix._TekDPO4104DataSource">
+<em class="property">class </em><tt class="descclassname">instruments.tektronix.</tt><tt class="descname">_TekDPO4104DataSource</tt><big>(</big><em>tek</em>, <em>name</em><big>)</big><a class="headerlink" href="#instruments.tektronix._TekDPO4104DataSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing a data source (channel, math, or ref) on the Tektronix 
+DPO 4104.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This class should NOT be manually created by the user. It is 
+designed to be initialized by the <a class="reference internal" href="#instruments.tektronix.TekDPO4104" title="instruments.tektronix.TekDPO4104"><tt class="xref py py-obj docutils literal"><span class="pre">TekDPO4104</span></tt></a> class.</p>
+</div>
+<dl class="method">
+<dt id="instruments.tektronix._TekDPO4104DataSource.read_waveform">
+<tt class="descname">read_waveform</tt><big>(</big><em>bin_format=True</em><big>)</big><a class="headerlink" href="#instruments.tektronix._TekDPO4104DataSource.read_waveform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read waveform from the oscilloscope.
+This function is all inclusive. After reading the data from the 
+oscilloscope, it unpacks the data and scales it accordingly.
+Supports both ASCII and binary waveform transfer.</p>
+<p>Function returns a tuple (x,y), where both x and y are numpy arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bin_format</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; If <a class="reference external" href="http://docs.python.org/library/constants.html#True" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a>, data is transfered
+in a binary format. Otherwise, data is transferred in ASCII.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix._TekDPO4104DataSource.name">
+<tt class="descname">name</tt><a class="headerlink" href="#instruments.tektronix._TekDPO4104DataSource.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the name of this data source, as identified over SCPI.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix._TekDPO4104DataSource.y_offset">
+<tt class="descname">y_offset</tt><a class="headerlink" href="#instruments.tektronix._TekDPO4104DataSource.y_offset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instruments.tektronix._TekDPO4104Channel">
+<em class="property">class </em><tt class="descclassname">instruments.tektronix.</tt><tt class="descname">_TekDPO4104Channel</tt><big>(</big><em>parent</em>, <em>idx</em><big>)</big><a class="headerlink" href="#instruments.tektronix._TekDPO4104Channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing a channel on the Tektronix DPO 4104.</p>
+<p>This class inherits from <a class="reference internal" href="#instruments.tektronix._TekDPO4104DataSource" title="instruments.tektronix._TekDPO4104DataSource"><tt class="xref py py-obj docutils literal"><span class="pre">_TekDPO4104DataSource</span></tt></a>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This class should NOT be manually created by the user. It is 
+designed to be initialized by the <a class="reference internal" href="#instruments.tektronix.TekDPO4104" title="instruments.tektronix.TekDPO4104"><tt class="xref py py-obj docutils literal"><span class="pre">TekDPO4104</span></tt></a> class.</p>
+</div>
+<dl class="attribute">
+<dt id="instruments.tektronix._TekDPO4104Channel.coupling">
+<tt class="descname">coupling</tt><a class="headerlink" href="#instruments.tektronix._TekDPO4104Channel.coupling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the coupling setting for this channel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><a class="reference internal" href="#instruments.tektronix.TekDPO4104.Coupling" title="instruments.tektronix.TekDPO4104.Coupling"><tt class="xref py py-obj docutils literal"><span class="pre">TekDPO4104.Coupling</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="tektds224">
 <h2><a class="reference internal" href="#instruments.tektronix.TekTDS224" title="instruments.tektronix.TekTDS224"><tt class="xref py py-class docutils literal"><span class="pre">TekTDS224</span></tt></a><a class="headerlink" href="#tektds224" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="instruments.tektronix.TekTDS224">
 <em class="property">class </em><tt class="descclassname">instruments.tektronix.</tt><tt class="descname">TekTDS224</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.tektronix.TekTDS224" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="instruments.tektronix.TekTDS224.coupling">
-<tt class="descname">coupling</tt><big>(</big><em>channel</em>, <em>setting</em><big>)</big><a class="headerlink" href="#instruments.tektronix.TekTDS224.coupling" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set input coupling of specified channel.</p>
+<dd><dl class="class">
+<dt id="instruments.tektronix.TekTDS224.Coupling">
+<em class="property">class </em><tt class="descname">Coupling</tt><a class="headerlink" href="#instruments.tektronix.TekTDS224.Coupling" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="instruments.tektronix.TekTDS224.Coupling.ac">
+<tt class="descname">ac</tt><em class="property"> = &lt;EnumValue: Coupling.ac [value=AC]&gt;</em><a class="headerlink" href="#instruments.tektronix.TekTDS224.Coupling.ac" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekTDS224.Coupling.dc">
+<tt class="descname">dc</tt><em class="property"> = &lt;EnumValue: Coupling.dc [value=DC]&gt;</em><a class="headerlink" href="#instruments.tektronix.TekTDS224.Coupling.dc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekTDS224.Coupling.ground">
+<tt class="descname">ground</tt><em class="property"> = &lt;EnumValue: Coupling.ground [value=GND]&gt;</em><a class="headerlink" href="#instruments.tektronix.TekTDS224.Coupling.ground" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekTDS224.channel">
+<tt class="descclassname">TekTDS224.</tt><tt class="descname">channel</tt><a class="headerlink" href="#instruments.tektronix.TekTDS224.channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a specific oscilloscope channel object. The desired channel is 
+specified like one would access a list.</p>
+<p>For instance, this would transfer the waveform from the first channel:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tek</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">tektronix</span><span class="o">.</span><span class="n">TekTDS224</span><span class="o">.</span><span class="n">open_tcpip</span><span class="p">(</span><span class="s">&#39;192.168.0.2&#39;</span><span class="p">,</span> <span class="mi">8888</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">tek</span><span class="o">.</span><span class="n">channel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">read_waveform</span><span class="p">()</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>channel</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) &#8211; Input channel which will have the input coupling 
-changed. One of  <tt class="docutils literal"><span class="pre">{1|2|3|4|CH1|CH2|CH3|CH4}</span></tt>.</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">_TekTDS224Channel</span></tt></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="instruments.tektronix.TekTDS224.read_waveform">
-<tt class="descname">read_waveform</tt><big>(</big><em>channel</em>, <em>fmt</em><big>)</big><a class="headerlink" href="#instruments.tektronix.TekTDS224.read_waveform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read waveform from the oscilloscope.
-This function is all inclusive. After reading the data from the 
-oscilloscope, it unpacks the data and scales it accordingly.</p>
-<p>Supports both ASCII and binary waveform transfer. For 2500 data 
-points, with a width of 2 bytes, transfer takes approx 2 seconds for 
-binary, and 7 seconds for ASCII over Galvant Industries&#8217; GPIBUSB 
-adapter.</p>
-<p>Function returns a list [x,y], where both x and y are numpy arrays.</p>
+<dl class="attribute">
+<dt id="instruments.tektronix.TekTDS224.data_source">
+<tt class="descclassname">TekTDS224.</tt><tt class="descname">data_source</tt><a class="headerlink" href="#instruments.tektronix.TekTDS224.data_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets/sets the the data source for waveform transfer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekTDS224.data_width">
+<tt class="descclassname">TekTDS224.</tt><tt class="descname">data_width</tt><a class="headerlink" href="#instruments.tektronix.TekTDS224.data_width" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekTDS224.force_trigger">
+<tt class="descclassname">TekTDS224.</tt><tt class="descname">force_trigger</tt><a class="headerlink" href="#instruments.tektronix.TekTDS224.force_trigger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekTDS224.math">
+<tt class="descclassname">TekTDS224.</tt><tt class="descname">math</tt><a class="headerlink" href="#instruments.tektronix.TekTDS224.math" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a data source object corresponding to the MATH channel.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>channel</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Channel which will have its waveform transfered. 
-One of <tt class="docutils literal"><span class="pre">{CH1|CH2|CH3|CH4|REFA|REFB|REFC|REFD|MATH}</span></tt></li>
-<li><strong>fmt</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Data transfer format. Either ASCII or binary. One of 
-<tt class="docutils literal"><span class="pre">{ASCII,BINARY}</span></tt></li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">_TekTDS224DataSource</span></tt></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">list</span></tt></a> of <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.7)"><tt class="xref py py-obj docutils literal"><span class="pre">numpy.ndarray</span></tt></a></p>
-</td>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.tektronix.TekTDS224.ref">
+<tt class="descclassname">TekTDS224.</tt><tt class="descname">ref</tt><a class="headerlink" href="#instruments.tektronix.TekTDS224.ref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a specific oscilloscope reference channel object. The desired 
+channel is specified like one would access a list.</p>
+<p>For instance, this would transfer the waveform from the first channel:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tek</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">tektronix</span><span class="o">.</span><span class="n">TekTDS224</span><span class="o">.</span><span class="n">open_tcpip</span><span class="p">(</span><span class="s">&#39;192.168.0.2&#39;</span><span class="p">,</span> <span class="mi">8888</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">tek</span><span class="o">.</span><span class="n">ref</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">read_waveform</span><span class="p">()</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">_TekTDS224DataSource</span></tt></td>
 </tr>
 </tbody>
 </table>

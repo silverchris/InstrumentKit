@@ -181,7 +181,7 @@ instrument before timing out.</li>
 </table>
 <div class="admonition-see-also admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://pyserial.sourceforge.net/pyserial_api.html#serial.Serial" title="(in pySerial v2.6)"><tt class="xref py py-obj docutils literal"><span class="pre">Serial</span></tt></a> for description of <tt class="xref py py-obj docutils literal"><span class="pre">port</span></tt> and timeouts.</p>
+<p class="last"><a class="reference external" href="http://pyserial.sourceforge.net/pyserial_api.html#serial.Serial" title="(in pySerial v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">Serial</span></tt></a> for description of <tt class="xref py py-obj docutils literal"><span class="pre">port</span></tt> and timeouts.</p>
 </div>
 </dd></dl>
 
@@ -218,7 +218,7 @@ instrument before timing out.</li>
 </table>
 <div class="admonition-see-also admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://pyserial.sourceforge.net/pyserial_api.html#serial.Serial" title="(in pySerial v2.6)"><tt class="xref py py-obj docutils literal"><span class="pre">Serial</span></tt></a> for description of <tt class="xref py py-obj docutils literal"><span class="pre">port</span></tt>, baud rates and timeouts.</p>
+<p class="last"><a class="reference external" href="http://pyserial.sourceforge.net/pyserial_api.html#serial.Serial" title="(in pySerial v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">Serial</span></tt></a> for description of <tt class="xref py py-obj docutils literal"><span class="pre">port</span></tt>, baud rates and timeouts.</p>
 </div>
 </dd></dl>
 
@@ -432,9 +432,27 @@ all connection types.</p>
 <dt id="instruments.Multimeter">
 <em class="property">class </em><tt class="descclassname">instruments.</tt><tt class="descname">Multimeter</tt><big>(</big><em>filelike</em><big>)</big><a class="headerlink" href="#instruments.Multimeter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
+<dt id="instruments.Multimeter.getinput_range">
+<tt class="descname">getinput_range</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.Multimeter.getinput_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current input range setting of the multimeter.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="instruments.Multimeter.getmode">
 <tt class="descname">getmode</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.Multimeter.getmode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read measurement mode the multimeter is currently in.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.Multimeter.getrelative">
+<tt class="descname">getrelative</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.Multimeter.getrelative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the status of relative measuring mode (usually on or off).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.Multimeter.gettrigger_mode">
+<tt class="descname">gettrigger_mode</tt><big>(</big><big>)</big><a class="headerlink" href="#instruments.Multimeter.gettrigger_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current trigger mode the multimeter is set to.</p>
 </dd></dl>
 
 <dl class="method">
@@ -444,15 +462,51 @@ all connection types.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="instruments.Multimeter.setinput_range">
+<tt class="descname">setinput_range</tt><big>(</big><em>newval</em><big>)</big><a class="headerlink" href="#instruments.Multimeter.setinput_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the input range setting of the multimeter.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="instruments.Multimeter.setmode">
 <tt class="descname">setmode</tt><big>(</big><em>newval</em><big>)</big><a class="headerlink" href="#instruments.Multimeter.setmode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Change the mode the multimeter is in.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.Multimeter.setrelative">
+<tt class="descname">setrelative</tt><big>(</big><em>newval</em><big>)</big><a class="headerlink" href="#instruments.Multimeter.setrelative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set (enable/disable) the relative measuring mode of the multimeter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instruments.Multimeter.settrigger_mode">
+<tt class="descname">settrigger_mode</tt><big>(</big><em>newval</em><big>)</big><a class="headerlink" href="#instruments.Multimeter.settrigger_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the multimeter triggering mode.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.Multimeter.input_range">
+<tt class="descname">input_range</tt><a class="headerlink" href="#instruments.Multimeter.input_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current input range setting of the multimeter.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="instruments.Multimeter.mode">
 <tt class="descname">mode</tt><a class="headerlink" href="#instruments.Multimeter.mode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read measurement mode the multimeter is currently in.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.Multimeter.relative">
+<tt class="descname">relative</tt><a class="headerlink" href="#instruments.Multimeter.relative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the status of relative measuring mode (usually on or off).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instruments.Multimeter.trigger_mode">
+<tt class="descname">trigger_mode</tt><a class="headerlink" href="#instruments.Multimeter.trigger_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current trigger mode the multimeter is set to.</p>
 </dd></dl>
 
 </dd></dl>
