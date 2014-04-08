@@ -64,6 +64,9 @@ def _string_to_bool(string):
 class _TekTDS5xxMeasurement(object):
     """
     Class representing a measurement channel on the Tektronix TDS5xx
+    
+    .. warning:: This class should NOT be manually created by the user. It is 
+        designed to be initialized by the `TekTDS5xx` class.
     """
     
     def __init__(self, tek, idx):

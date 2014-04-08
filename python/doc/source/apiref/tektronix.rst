@@ -42,3 +42,15 @@ Tektronix-brand Instruments
 .. autoclass:: TekTDS5xx
     :members:
     :undoc-members:
+
+.. autoclass:: _TekTDS5xxMeasurement
+    :members:
+    :undoc-members:
+
+.. autoclass:: _TekTDS5xxDataSource
+    :members:
+    :undoc-members:
+
+.. autoclass:: _TekTDS5xxChannel
+    :members:
+    :undoc-members:
