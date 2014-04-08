@@ -49,6 +49,16 @@ from instruments.abstract_instruments import (
 from instruments.generic_scpi import SCPIInstrument
 from instruments.util_fns import ProxyList
 
+## HELPERS #####################################################################
+
+def _string_to_bool(string):
+    """
+    Converts a string containing 1 or 0 to a bool()
+    
+    :type: `bool`
+    """
+    return bool(int(string))
+
 ## CLASSES #####################################################################
 
 class _TekTDS5xxMeasurement(object):
@@ -58,28 +68,166 @@ class _TekTDS5xxMeasurement(object):
     
     def __init__(self, tek, idx):
         self._tek = tek
-        self._id = idx+1
-        resp = self._tek.query('MEASU:MEAS{}?'.format(self._id))
-        self._data = dict(zip(['enabled', 'type', 'units', 'src1', 'src2',
-                              'edge1','edge2', 'dir'], resp.split(';')))
-    
-    def read(self):
+        self._id = idx+1    
+
+    @property
+    def direction(self):
         """
-        Gets the current measurement value of the channel, and returns a dict
-        of all relevent information
+        Gets/Sets Measurement Direction
         
-        :rtype: `dict` of measurement parameters
+        :type: `TekTDS5xx.Direction`
         """
-        if int(self._data['enabled']):
-            resp = self._tek.query('MEASU:MEAS{}:VAL?'.format(self._id))
-            self._data['value'] = float(resp)
-            return self._data
-        else:
-            return self._data
+        resp = self._tek.query("MEASU:MEAS{}:DEL:DIRE?".format(self._id))
+        return TekTDS5xx.Direction[resp]
     
-    def set(self):
-        raise NotImplementedError
+    @direction.setter
+    def direction(self, newval):
+        if (not isinstance(newval, EnumValue)) or (newval.enum is not 
+                                                   TekTDS5xx.Direction):
+            raise TypeError("Direction setting must be a `TekTDS5xx.Direction`"
+                " value, got {} instead.".format(type(newval)))
+
+        self._tek.sendcmd("MEASU:MEAS{}:DEL:DIRE {}".format(self._id,
+                                                        newval.value))
     
+    @property
+    def edge(self):
+        """
+        Gets/Sets the Edge used on Measurement Source
+        
+        :type: `TekTDS5xx.Edge`
+        """
+        resp = self._tek.query("MEASU:MEAS{}:DEL:EDGE1?".format(self._id))
+        return TekTDS5xx.Edge[resp]
+    
+    @edge.setter
+    def edge(self, newval):
+        if (not isinstance(newval, EnumValue)) or (newval.enum is not 
+                                                   TekTDS5xx.Edge):
+            raise TypeError("Edge setting must be a `TekTDS5xx.Edge`"
+                " value, got {} instead.".format(type(newval)))
+
+        self._tek.sendcmd("MEASU:MEAS{}:DEL:EDGE1 {}".format(self._id,
+                                                        newval.value))
+        
+    @property
+    def edge2(self):
+        """
+        Gets/Sets the Edge used on Measurement Source2
+        
+        :type: `TekTDS5xx.Edge`
+        """
+        resp = self._tek.query("MEASU:MEAS{}:DEL:EDGE2?".format(self._id))
+        return TekTDS5xx.Edge[resp]
+    
+    @edge2.setter
+    def edge2(self, newval):
+        if (not isinstance(newval, EnumValue)) or (newval.enum is not 
+                                                   TekTDS5xx.Edge):
+            raise TypeError("Edge setting must be a `TekTDS5xx.Edge`"
+                " value, got {} instead.".format(type(newval)))
+
+        self._tek.sendcmd("MEASU:MEAS{}:DEL:EDGE2 {}".format(self._id,
+                                                        newval.value))
+    
+    @property
+    def source(self):
+        """
+        Gets/Sets the Measurement Source
+        
+        :type: `TekTDS5xx.Source`
+        """
+        resp = self._tek.query("MEASU:MEAS{}:SOURCE?".format(self._id))
+        return TekTDS5xx.Source[resp]
+    
+    @source.setter
+    def source(self, newval):
+        if (not isinstance(newval, EnumValue)) or (newval.enum is not 
+                                                           TekTDS5xx.Source):
+            raise TypeError("Source setting must be a `TekTDS5xx.Source`"
+                " value, got {} instead.".format(type(newval)))
+
+        self._tek.sendcmd("MEASU:MEAS{}:SOURCE {}".format(self._id,
+                                                          newval.value))
+    
+    @property
+    def source2(self):
+        """
+        Gets/Sets the Measurement Source2
+        
+        :type: `TekTDS5xx.Source`
+        """
+        resp = self._tek.query("MEASU:MEAS{}:SOURCE2?".format(self._id))
+        return TekTDS5xx.Source[resp]
+    
+    @source2.setter
+    def source2(self, newval):
+        if (not isinstance(newval, EnumValue)) or (newval.enum is not 
+                                                           TekTDS5xx.Source):
+            raise TypeError("Source setting must be a `TekTDS5xx.Source`"
+                " value, got {} instead.".format(type(newval)))
+
+        self._tek.sendcmd("MEASU:MEAS{}:SOURCE2 {}".format(self._id,
+                                                          newval.value))
+    
+    @property
+    def state(self):
+        """
+        Gets/Sets if this Measurement is enabled
+        
+        :type: `bool`
+        """
+        resp = self._tek.query('MEASU:MEAS{}:STATE?'.format(self._id))
+        return _string_to_bool(resp)
+    
+    @state.setter
+    def state(self, newval):
+        if not isinstance(newval, bool):
+            raise ValueError("Expected bool but got"
+                                            "{} instead".format(type(newval)))
+        self._tek.sendcmd('MEASU:MEAS{}:STATE {}'.format(self._id, int(newval)))
+    
+    @property
+    def type(self):
+        """
+        Gets/Sets the Measurement Type
+        
+        :type: `TekTDS5xx.Measurement`
+        """
+        resp = self._tek.query("MEASU:MEAS{}:TYPE?".format(self._id))
+        return TekTDS5xx.Measurement[resp]
+    
+    @type.setter
+    def type(self, newval):
+        if (not isinstance(newval, EnumValue)) or (newval.enum is not 
+                                                        TekTDS5xx.Measurement):
+            raise TypeError(
+                "Measurement setting must be a `TekTDS5xx.Measurement`"
+                " value, got {} instead.".format(type(newval)))
+
+        self._tek.sendcmd("MEASU:MEAS{}:TYPE {}".format(self._id,
+                                                          newval.value))
+    
+    @property
+    def units(self):
+        """
+        Gets the units the measurement is in
+        
+        :type: `string`
+        """
+        resp = self._tek.query("MEASU:MEAS{}:UNITS?".format(self._id))
+        return resp
+    
+    @property
+    def value(self):
+        """
+        Gets the Measured value
+        
+        :type: `float`
+        """
+        resp = self._tek.query("MEASU:MEAS{}:VALUE?".format(self._id))
+        return float(resp)
+        
 
 class _TekTDS5xxDataSource(OscilloscopeDataSource):
     """
@@ -293,44 +441,44 @@ class TekTDS5xx(SCPIInstrument, Oscilloscope):
         """
         Available coupling options for input sources and trigger
         """
-        ac = "AC"
-        dc = "DC"
+        ac     = "AC"
+        dc     = "DC"
         ground = "GND"
         
     class Bandwidth(Enum):
         """
         Bandwidth in MHz
         """
-        Twenty = "TWE"
+        Twenty     = "TWE"
         OneHundred = "HUN"
         TwoHundred = "TWO"
-        FULL = "FUL"
+        FULL       = "FUL"
     
     class Impedance(Enum):
         """
         Available options for input source impedance
         """
-        Fifty = "FIF"
+        Fifty  = "FIF"
         OneMeg = "MEG"
         
     class Edge(Enum):
         """
         Available Options for trigger slope
         """
-        Rising = 'RIS'
-        Falling = 'FALL'
+        Rising  = "RIS"
+        Falling = "FALL"
         
     class Trigger(Enum):
         """
         Available Trigger sources
         (AUX not Available on TDS520A/TDS540A)
         """
-        CH1 = 'CH1'
-        CH2 = 'CH2'
-        CH3 = 'CH3'
-        CH4 = 'CH4'
-        AUX = 'AUX'
-        LINE = 'LINE'
+        CH1  = "CH1"
+        CH2  = "CH2"
+        CH3  = "CH3"
+        CH4  = "CH4"
+        AUX  = "AUX"
+        LINE = "LINE"
     
     class Source(Enum):
         """
@@ -347,6 +495,43 @@ class TekTDS5xx(SCPIInstrument, Oscilloscope):
         Ref2  = "REF2"
         Ref3  = "REF3"
         Ref4  = "REF4"
+        
+    class Measurement(Enum):
+        """
+        Available Measurement Types
+        """
+        Amplitude  = "AMP"
+        Area       = "ARE"
+        Burst      = "BUR"
+        Carea      = "CAR"
+        Cmean      = "CME"
+        Crms       = "CRM"
+        Delay      = "DEL"
+        Fall       = "FALL"
+        Frequency  = "FREQ"
+        High       = "HIGH"
+        Low        = "LOW"
+        Maximum    = "MAX"
+        Mean       = "MEAN"
+        Minimum    = "MINI"
+        Nduty      = "NDU"
+        Novershoot = "NOV"
+        Nwidth     = "NWI"
+        Pduty      = "PDU"
+        Period     =  "PERI"
+        Phase      = "PHA"
+        Pk2pk      = "PK2"
+        Povershoot = "POV"
+        Pwidth     = "PWI"
+        Rise       = "RIS"
+        Rms        = "RMS"
+    
+    class Direction(Enum):
+        """
+        Available Directions for Measurements
+        """
+        Backwards = "BAC"
+        Forwards  = "FORW"
     
     ## PROPERTIES ##
     @property
@@ -357,7 +542,7 @@ class TekTDS5xx(SCPIInstrument, Oscilloscope):
         
         :rtype: `_TDS5xxMeasurement`
         """
-        return ProxyList(self, _TekTDS5xxMeasurement, xrange(3))
+        return ProxyList(self, _TekTDS5xxMeasurement, xrange(4))
     
     
     @property
@@ -551,8 +736,9 @@ class TekTDS5xx(SCPIInstrument, Oscilloscope):
     def trigger_source(self, newval):
         if (not isinstance(newval, EnumValue)) or (newval.enum is not 
                                                    TekTDS5xx.Trigger):
-            raise TypeError("Trigger source setting must be a"
-                "`TekTDS5xx.source` value, got {} instead.".format(type(newval)))
+            raise TypeError(
+                "Trigger source setting must be a`TekTDS5xx.source` value,"
+                " got {} instead.".format(type(newval)))
 
         self.sendcmd("TRIG:MAI:EDGE:SOU {}".format(newval.value))
     
@@ -580,7 +766,8 @@ class TekTDS5xx(SCPIInstrument, Oscilloscope):
         
         :type: `bool`
         """
-        return bool(int(self.query('DISPLAY:CLOCK?')))
+        resp = self.query('DISPLAY:CLOCK?')
+        return _string_to_bool(resp)
     
     @display_clock.setter
     def display_clock(self, newval):
@@ -600,7 +787,7 @@ class TekTDS5xx(SCPIInstrument, Oscilloscope):
         self.sendcmd('HARDC START')
         sleep(1)
         header = self.query("", size=54)
-        #Get BMP Length  in kilobytes from DIB header, because file header is bad
+        #Get BMP Length in kilobytes from DIB header, because file header is bad
         length = reduce(operator.mul, struct.unpack('<iihh', header[18:30]))/8
         length = int(length)+8# Add 8 bytes for our monochrome colour table
         data = header+self.query("", size=length)
